@@ -1,2 +1,0 @@
-en csharp wpf faut que je fasse dans l'applie un plusieur datagrid dans des tab item different pour pour chaque table je quand je sélectionne dans le datadrid faut que sa s'affiche dans des textebox, pour chable aussi il me faute un bouton ajouter, modififer, supprimer
-a part pour la table users qui elle quand je lance l'appli doit me demander de me connecter

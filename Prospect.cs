@@ -73,7 +73,10 @@ namespace InfoTools
             this.leCommercial = leCommercial;
         }
 
-
+        public override string ToString()
+        {
+            return NomProspect + " " + PrenomProspect;
+        }
 
 
     }

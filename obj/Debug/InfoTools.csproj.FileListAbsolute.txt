@@ -96,3 +96,271 @@ E:\InfoTools\obj\Debug\InfoTools.csproj.CoreCompileInputs.cache
 E:\InfoTools\obj\Debug\InfoTools.csproj.Up2Date
 D:\InfoTools\obj\Debug\LoginWindow.baml
 D:\InfoTools\obj\Debug\LoginWindow.g.cs
+E:\InfoTools\bin\Debug\itext.barcodes.dll
+E:\InfoTools\bin\Debug\itext.bouncy-castle-connector.dll
+E:\InfoTools\bin\Debug\itext.commons.dll
+E:\InfoTools\bin\Debug\itext.forms.dll
+E:\InfoTools\bin\Debug\itext.io.dll
+E:\InfoTools\bin\Debug\itext.kernel.dll
+E:\InfoTools\bin\Debug\itext.layout.dll
+E:\InfoTools\bin\Debug\itext.pdfa.dll
+E:\InfoTools\bin\Debug\itext.pdfua.dll
+E:\InfoTools\bin\Debug\itext.sign.dll
+E:\InfoTools\bin\Debug\itext.styledxmlparser.dll
+E:\InfoTools\bin\Debug\itext.svg.dll
+E:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Options.dll
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Primitives.dll
+E:\InfoTools\bin\Debug\Newtonsoft.Json.dll
+E:\InfoTools\bin\Debug\System.ValueTuple.dll
+E:\InfoTools\bin\Debug\itext.barcodes.xml
+E:\InfoTools\bin\Debug\itext.bouncy-castle-connector.xml
+E:\InfoTools\bin\Debug\itext.commons.xml
+E:\InfoTools\bin\Debug\itext.forms.xml
+E:\InfoTools\bin\Debug\itext.io.xml
+E:\InfoTools\bin\Debug\itext.kernel.xml
+E:\InfoTools\bin\Debug\itext.layout.xml
+E:\InfoTools\bin\Debug\itext.pdfa.xml
+E:\InfoTools\bin\Debug\itext.pdfua.xml
+E:\InfoTools\bin\Debug\itext.sign.xml
+E:\InfoTools\bin\Debug\itext.styledxmlparser.xml
+E:\InfoTools\bin\Debug\itext.svg.xml
+E:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+E:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Options.xml
+E:\InfoTools\bin\Debug\Microsoft.Extensions.Primitives.xml
+E:\InfoTools\bin\Debug\Newtonsoft.Json.xml
+E:\InfoTools\bin\Debug\System.ValueTuple.xml
+E:\InfoTools\bin\Debug\PdfSharp.Charting.dll
+E:\InfoTools\bin\Debug\PdfSharp.dll
+E:\InfoTools\bin\Debug\PdfSharp.Quality.dll
+E:\InfoTools\bin\Debug\PdfSharp.Snippets.dll
+E:\InfoTools\bin\Debug\PdfSharp.System.dll
+E:\InfoTools\bin\Debug\PdfSharp.WPFonts.dll
+E:\InfoTools\bin\Debug\PdfSharp.pdb
+E:\InfoTools\bin\Debug\PdfSharp.xml
+E:\InfoTools\bin\Debug\PdfSharp.Charting.pdb
+E:\InfoTools\bin\Debug\PdfSharp.Charting.xml
+E:\InfoTools\bin\Debug\PdfSharp.Quality.pdb
+E:\InfoTools\bin\Debug\PdfSharp.Quality.xml
+E:\InfoTools\bin\Debug\PdfSharp.Snippets.pdb
+E:\InfoTools\bin\Debug\PdfSharp.System.pdb
+E:\InfoTools\bin\Debug\PdfSharp.System.xml
+E:\InfoTools\bin\Debug\PdfSharp.WPFonts.pdb
+E:\InfoTools\bin\Debug\PdfSharp.WPFonts.xml
+E:\InfoTools\bin\Debug\de\PdfSharp.resources.dll
+E:\InfoTools\bin\Debug\de\PdfSharp.Charting.resources.dll
+E:\InfoTools\bin\Debug\LiveCharts.dll
+E:\InfoTools\bin\Debug\LiveCharts.Wpf.dll
+E:\InfoTools\bin\Debug\OxyPlot.dll
+E:\InfoTools\bin\Debug\OxyPlot.Wpf.dll
+E:\InfoTools\bin\Debug\OxyPlot.Wpf.Shared.dll
+E:\InfoTools\bin\Debug\LiveCharts.pdb
+E:\InfoTools\bin\Debug\LiveCharts.xml
+E:\InfoTools\bin\Debug\LiveCharts.Wpf.pdb
+E:\InfoTools\bin\Debug\LiveCharts.Wpf.xml
+E:\InfoTools\bin\Debug\OxyPlot.xml
+E:\InfoTools\bin\Debug\OxyPlot.Wpf.xml
+E:\InfoTools\bin\Debug\OxyPlot.Wpf.Shared.xml
+E:\InfoTools\obj\Debug\GraphiqueWindow.baml
+E:\InfoTools\obj\Debug\GraphiqueWindow.g.cs
+D:\InfoTools\bin\Debug\itext.barcodes.dll
+D:\InfoTools\bin\Debug\itext.bouncy-castle-connector.dll
+D:\InfoTools\bin\Debug\itext.commons.dll
+D:\InfoTools\bin\Debug\itext.forms.dll
+D:\InfoTools\bin\Debug\itext.io.dll
+D:\InfoTools\bin\Debug\itext.kernel.dll
+D:\InfoTools\bin\Debug\itext.layout.dll
+D:\InfoTools\bin\Debug\itext.pdfa.dll
+D:\InfoTools\bin\Debug\itext.pdfua.dll
+D:\InfoTools\bin\Debug\itext.sign.dll
+D:\InfoTools\bin\Debug\itext.styledxmlparser.dll
+D:\InfoTools\bin\Debug\itext.svg.dll
+D:\InfoTools\bin\Debug\LiveCharts.dll
+D:\InfoTools\bin\Debug\LiveCharts.Wpf.dll
+D:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Options.dll
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\InfoTools\bin\Debug\Newtonsoft.Json.dll
+D:\InfoTools\bin\Debug\OxyPlot.dll
+D:\InfoTools\bin\Debug\OxyPlot.Wpf.dll
+D:\InfoTools\bin\Debug\OxyPlot.Wpf.Shared.dll
+D:\InfoTools\bin\Debug\PdfSharp.Charting.dll
+D:\InfoTools\bin\Debug\PdfSharp.dll
+D:\InfoTools\bin\Debug\PdfSharp.Quality.dll
+D:\InfoTools\bin\Debug\PdfSharp.Snippets.dll
+D:\InfoTools\bin\Debug\PdfSharp.System.dll
+D:\InfoTools\bin\Debug\PdfSharp.WPFonts.dll
+D:\InfoTools\bin\Debug\System.ValueTuple.dll
+D:\InfoTools\bin\Debug\itext.barcodes.xml
+D:\InfoTools\bin\Debug\itext.bouncy-castle-connector.xml
+D:\InfoTools\bin\Debug\itext.commons.xml
+D:\InfoTools\bin\Debug\itext.forms.xml
+D:\InfoTools\bin\Debug\itext.io.xml
+D:\InfoTools\bin\Debug\itext.kernel.xml
+D:\InfoTools\bin\Debug\itext.layout.xml
+D:\InfoTools\bin\Debug\itext.pdfa.xml
+D:\InfoTools\bin\Debug\itext.pdfua.xml
+D:\InfoTools\bin\Debug\itext.sign.xml
+D:\InfoTools\bin\Debug\itext.styledxmlparser.xml
+D:\InfoTools\bin\Debug\itext.svg.xml
+D:\InfoTools\bin\Debug\LiveCharts.pdb
+D:\InfoTools\bin\Debug\LiveCharts.xml
+D:\InfoTools\bin\Debug\LiveCharts.Wpf.pdb
+D:\InfoTools\bin\Debug\LiveCharts.Wpf.xml
+D:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Options.xml
+D:\InfoTools\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\InfoTools\bin\Debug\Newtonsoft.Json.xml
+D:\InfoTools\bin\Debug\OxyPlot.xml
+D:\InfoTools\bin\Debug\OxyPlot.Wpf.xml
+D:\InfoTools\bin\Debug\OxyPlot.Wpf.Shared.xml
+D:\InfoTools\bin\Debug\PdfSharp.pdb
+D:\InfoTools\bin\Debug\PdfSharp.xml
+D:\InfoTools\bin\Debug\PdfSharp.Charting.pdb
+D:\InfoTools\bin\Debug\PdfSharp.Charting.xml
+D:\InfoTools\bin\Debug\PdfSharp.Quality.pdb
+D:\InfoTools\bin\Debug\PdfSharp.Quality.xml
+D:\InfoTools\bin\Debug\PdfSharp.Snippets.pdb
+D:\InfoTools\bin\Debug\PdfSharp.System.pdb
+D:\InfoTools\bin\Debug\PdfSharp.System.xml
+D:\InfoTools\bin\Debug\PdfSharp.WPFonts.pdb
+D:\InfoTools\bin\Debug\PdfSharp.WPFonts.xml
+D:\InfoTools\bin\Debug\System.ValueTuple.xml
+D:\InfoTools\bin\Debug\de\PdfSharp.resources.dll
+D:\InfoTools\bin\Debug\de\PdfSharp.Charting.resources.dll
+D:\InfoTools\obj\Debug\GraphiqueWindow.baml
+D:\InfoTools\obj\Debug\GraphiqueWindow.g.cs
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\InfoTools.exe.config
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\InfoTools.exe
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\InfoTools.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\BouncyCastle.Cryptography.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Google.Protobuf.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.barcodes.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.bouncy-castle-connector.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.commons.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.forms.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.io.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.kernel.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.layout.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.pdfa.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.pdfua.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.sign.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.styledxmlparser.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.svg.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\K4os.Compression.LZ4.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\K4os.Hash.xxHash.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\LiveCharts.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\LiveCharts.Wpf.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Options.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Primitives.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\MySql.Data.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Newtonsoft.Json.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\OxyPlot.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\OxyPlot.Wpf.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\OxyPlot.Wpf.Shared.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Charting.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Quality.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Snippets.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.System.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.WPFonts.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Buffers.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Configuration.ConfigurationManager.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.IO.Pipelines.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Memory.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Numerics.Vectors.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Threading.Tasks.Extensions.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.ValueTuple.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\ZstdSharp.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\BouncyCastle.Cryptography.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Google.Protobuf.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Google.Protobuf.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.barcodes.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.bouncy-castle-connector.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.commons.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.forms.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.io.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.kernel.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.layout.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.pdfa.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.pdfua.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.sign.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.styledxmlparser.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\itext.svg.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\K4os.Compression.LZ4.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\K4os.Compression.LZ4.Streams.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\K4os.Hash.xxHash.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\LiveCharts.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\LiveCharts.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\LiveCharts.Wpf.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\LiveCharts.Wpf.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Options.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Microsoft.Extensions.Primitives.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\MySql.Data.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\Newtonsoft.Json.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\OxyPlot.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\OxyPlot.Wpf.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\OxyPlot.Wpf.Shared.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Charting.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Charting.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Quality.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Quality.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.Snippets.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.System.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.System.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.WPFonts.pdb
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\PdfSharp.WPFonts.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Buffers.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.IO.Pipelines.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Memory.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Numerics.Vectors.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.Threading.Tasks.Extensions.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\System.ValueTuple.xml
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\de\PdfSharp.resources.dll
+E:\Infootols - tous\Csharp #\InfoTools\bin\Debug\de\PdfSharp.Charting.resources.dll
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.csproj.AssemblyReference.cache
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\GraphiqueWindow.baml
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\LoginWindow.baml
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\GraphiqueWindow.g.cs
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\LoginWindow.g.cs
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\MainWindow.g.cs
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\App.g.cs
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools_MarkupCompile.cache
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools_MarkupCompile.lref
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\MainWindow.baml
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.g.resources
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.Properties.Resources.resources
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.csproj.GenerateResource.cache
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.csproj.CoreCompileInputs.cache
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.csproj.Up2Date
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.exe
+E:\Infootols - tous\Csharp #\InfoTools\obj\Debug\InfoTools.pdb
