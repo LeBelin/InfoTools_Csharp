@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\GitHub\\InfoTools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|d:\\github\\infotools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools\\LoginWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:LoginWindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|d:\\github\\infotools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools\\Prospect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -65,12 +65,8 @@
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "LoginWindow.xaml.cs",
@@ -78,7 +74,8 @@
               "RelativeToolTip": "LoginWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T12:21:25.222Z"
+              "WhenOpened": "2024-11-30T12:21:25.222Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -141,13 +138,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\GitHub\\InfoTools\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAcwEsBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwEsBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T13:54:57.2Z",
               "EditorCaption": ""
