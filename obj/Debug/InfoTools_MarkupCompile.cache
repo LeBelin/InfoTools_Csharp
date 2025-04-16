@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\GitHub\InfoTools\obj\Debug\
+D:\GitHub\InfoTools_Csharp\obj\Debug\
 InfoTools
 none
 false
 DEBUG;TRACE
-D:\GitHub\InfoTools\App.xaml
+D:\GitHub\InfoTools_Csharp\App.xaml
 3-42463072
 
 15330145056
-681406133798
+69110645207
 GraphiqueWindow.xaml;LoginWindow.xaml;MainWindow.xaml;
 
 False

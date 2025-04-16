@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Connexion" Height="250" Width="400">
     <Grid>
-        <TextBlock Text="Email" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,30,0,0"/>
+        <TextBlock Text="Email" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="37,30,0,0"/>
         <TextBox x:Name="EmailTextBox" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Margin="120,30,0,0"/>
 
-        <TextBlock Text="Mot de passe" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,80,0,0"/>
+        <TextBlock Text="Mot de passe" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="36,80,0,0"/>
         <PasswordBox x:Name="PasswordBox" VerticalAlignment="Top" HorizontalAlignment="Left" Width="250" Margin="120,80,0,0"/>
 
         <Button Content="Se connecter" Width="120" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,30" Click="LoginButton_Click"/>

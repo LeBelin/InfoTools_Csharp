@@ -39,23 +39,30 @@ namespace InfoTools
             try
             {
                 bdd.Initialize();
-                string query = "SELECT COUNT(*) FROM users WHERE email = @Email AND password = @Password";
-                MySqlCommand cmd = new MySqlCommand(query, bdd.Connection);
 
+                string query = "SELECT password FROM users WHERE email = @Email";
+                MySqlCommand cmd = new MySqlCommand(query, bdd.Connection);
                 cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password); // Assurez-vous d'avoir un hash sécurisé pour le mot de passe
 
                 bdd.OpenConnection();
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                object result = cmd.ExecuteScalar();
                 bdd.CloseConnection();
 
-                return count > 0;
+                if (result != null)
+                {
+                    string storedHash = result.ToString();
+                    // Vérification du mot de passe avec BCrypt
+                    return BCrypt.Net.BCrypt.Verify(password, storedHash);
+                }
+
+                return false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Erreur : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
         }
+
     }
 }
