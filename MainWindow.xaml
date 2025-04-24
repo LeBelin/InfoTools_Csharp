@@ -6,13 +6,14 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:InfoTools"
         mc:Ignorable="d"
-        Title="MainWindow" Height="569" Width="747">
+        Title="Infotools" Height="655" Width="747">
     <Grid Margin="0,0,3.6,0.2">
 
+        <Image Margin="17,0,536,541" Source="images/logo.png" Stretch="Fill"/>
         <Image Margin="476,281,0,6" Source="/vague.png" Stretch="Fill"/>
         <Image Margin="0,281,476,6" Source="/vague.png" Stretch="Fill"/>
 
-        <Image Margin="0,29,476,258" Source="/vague.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="0,93,476,258" Source="/vague.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,7 +24,7 @@
             </Image.RenderTransform>
         </Image>
 
-        <Image Margin="476,29,0,258" Source="/vague.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+        <Image Margin="476,110,0,258" Source="/vague.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -34,8 +35,14 @@
             </Image.RenderTransform>
         </Image>
 
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="710">
-            <TabItem Header="Commercial">
+        <TabControl x:Name="tabControl" HorizontalAlignment="Center" Margin="0,101,0,0" VerticalAlignment="Top" Width="710">
+            <TabItem >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="images/logo.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Commercial"/>
+                    </StackPanel>
+                </TabItem.Header>
                 <Grid Background="#FFE5E5E5" VerticalAlignment="Top" Height="500">
                     <DataGrid x:Name="dtgCommerciaux" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgCommerciaux_SelectionChanged"/>
                     <TextBox x:Name="txtNumCommercial" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
@@ -203,7 +210,7 @@
             </TabItem>
 
 
-            <TabItem Header="Facture">
+            <TabItem Header="Facture" IsSelected="True">
                 <Grid Background="#FFE5E5E5" VerticalAlignment="Top" Height="500">
                     <DataGrid x:Name="dtgFacture" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgFacture_SelectionChanged"/>
                     <TextBox x:Name="txtIdFacture" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
@@ -249,7 +256,32 @@
             </TabItem>
 
         </TabControl>
-        <Button x:Name="btnActualliser" Content="Actualiser" HorizontalAlignment="Left" Margin="650,10,0,0" VerticalAlignment="Top" Width="70" Click="btnActualliser_Click"/>
+
+        <Button x:Name="btnActualliser" 
+        HorizontalAlignment="Left" 
+        VerticalAlignment="Top" 
+        Width="39" 
+        Height="29" 
+        Margin="681,10,0,0" 
+        Click="btnActualliser_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="#e8f0fe" 
+                    BorderBrush="#FF1967D2" 
+                    BorderThickness="2" 
+                    CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center" 
+                                  VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+
+            <Button.Content>
+                <Image Source="images/refresh.png" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button.Content>
+        </Button>
+
+
 
 
     </Grid>

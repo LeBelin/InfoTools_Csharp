@@ -3,44 +3,44 @@
   "WorkspaceRootPath": "D:\\GitHub\\InfoTools_Csharp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\bdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:bdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|d:\\github\\infotools_csharp\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\graphiquewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:graphiquewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|d:\\github\\infotools_csharp\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Prospect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:Prospect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Facture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:Facture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\bdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:bdd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Commerciaux.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:Commerciaux.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:Produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Facture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:Facture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:MainWindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\graphiquewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:graphiquewindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|solutionrelative:Produit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F2C8CC2A-2D54-4F1A-92C8-0FC125BE68A5}|InfoTools.csproj|D:\\GitHub\\InfoTools_Csharp\\Client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -73,45 +73,36 @@
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LoginWindow.xaml.cs",
-              "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\LoginWindow.xaml.cs",
-              "RelativeDocumentMoniker": "LoginWindow.xaml.cs",
-              "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\LoginWindow.xaml.cs",
-              "RelativeToolTip": "LoginWindow.xaml.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwEEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T12:21:25.222Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Prospect.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\Prospect.cs",
               "RelativeDocumentMoniker": "Prospect.cs",
               "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\Prospect.cs",
               "RelativeToolTip": "Prospect.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwAoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-27T15:26:32.065Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Facture.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\Facture.cs",
               "RelativeDocumentMoniker": "Facture.cs",
               "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\Facture.cs",
               "RelativeToolTip": "Facture.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAwwD4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-04T13:07:27.98Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Commerciaux.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\Commerciaux.cs",
               "RelativeDocumentMoniker": "Commerciaux.cs",
@@ -123,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Produit.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\Produit.cs",
               "RelativeDocumentMoniker": "Produit.cs",
@@ -135,39 +126,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
               "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-11-27T13:54:57.53Z"
+              "WhenOpened": "2024-11-27T13:54:57.53Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAgwEsBAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAMkBAAAAAAAAAAD4v+YDAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T13:54:57.2Z"
+              "WhenOpened": "2024-11-27T13:54:57.2Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "bdd.cs",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\bdd.cs",
               "RelativeDocumentMoniker": "bdd.cs",
               "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\bdd.cs",
               "RelativeToolTip": "bdd.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-27T14:07:51.035Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T14:07:51.035Z"
             },
             {
               "$type": "Document",
@@ -179,6 +171,19 @@
               "RelativeToolTip": "LoginWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-04-16T17:44:02.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginWindow.xaml.cs",
+              "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\LoginWindow.xaml.cs",
+              "RelativeDocumentMoniker": "LoginWindow.xaml.cs",
+              "ToolTip": "D:\\GitHub\\InfoTools_Csharp\\LoginWindow.xaml.cs",
+              "RelativeToolTip": "LoginWindow.xaml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwEAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-30T12:21:25.222Z",
               "EditorCaption": ""
             },
             {
@@ -219,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "GraphiqueWindow.xaml",
               "DocumentMoniker": "D:\\GitHub\\InfoTools_Csharp\\GraphiqueWindow.xaml",
               "RelativeDocumentMoniker": "GraphiqueWindow.xaml",
