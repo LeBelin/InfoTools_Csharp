@@ -12,12 +12,9 @@ namespace InfoTools
         #region Propriétés
         private int idCommerciaux;
         private string nomCommerciaux;
-        private string prenomCommerciaux;
-        private string adresseCommerciaux;
-        private string villeCommerciaux;
-        private string cpCommerciaux;
         private string mailCommerciaux;
         private string telCommerciaux;
+        private string adresseCommerciaux;
         #endregion
 
         #region Méthodes
@@ -33,30 +30,6 @@ namespace InfoTools
             set { nomCommerciaux = value; }
         }
 
-        public string PrenomCommerciaux
-        {
-            get { return prenomCommerciaux; }
-            set { prenomCommerciaux = value; }
-        }
-
-        public string AdresseCommerciaux
-        {
-            get { return adresseCommerciaux; }
-            set { adresseCommerciaux = value; }
-        }
-
-        public string VilleCommerciaux
-        {
-            get { return villeCommerciaux; }
-            set { villeCommerciaux = value; }
-        }
-
-        public string CpCommerciaux
-        {
-            get { return cpCommerciaux; }
-            set { cpCommerciaux = value; }
-        }
-
         public string MailCommerciaux
         {
             get { return mailCommerciaux; }
@@ -69,25 +42,29 @@ namespace InfoTools
             set { telCommerciaux = value; }
         }
 
+        public string AdresseCommerciaux
+        {
+            get { return adresseCommerciaux; }
+            set { adresseCommerciaux = value; }
+        }
+
+
         #endregion
 
         #region Constructeur
-        public Commerciaux(int idCommerciaux, string nomCommerciaux, string prenomCommerciaux, string adresseCommerciaux, string villeCommerciaux, string cpCommerciaux, string mailCommerciaux, string telCommerciaux)
+        public Commerciaux(int idCommerciaux, string nomCommerciaux, string mailCommerciaux, string telCommerciaux, string adresseCommerciaux)
         {
             this.idCommerciaux = idCommerciaux;
             this.nomCommerciaux = nomCommerciaux;
-            this.prenomCommerciaux = prenomCommerciaux;
-            this.adresseCommerciaux = adresseCommerciaux;
-            this.villeCommerciaux = villeCommerciaux;
-            this.cpCommerciaux = cpCommerciaux;
             this.mailCommerciaux = mailCommerciaux;
             this.telCommerciaux = telCommerciaux;
+            this.adresseCommerciaux = adresseCommerciaux;
         }
         #endregion
 
         public override string ToString()
         {
-            return nomCommerciaux + " " + prenomCommerciaux;
+            return nomCommerciaux;
         }
 
     }

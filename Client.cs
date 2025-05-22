@@ -11,12 +11,9 @@ namespace InfoTools
         #region Propriétés
         private int idClient;
         private string nomClient;
-        private string prenomClient;
         private string emailClient;
         private string telephoneClient;
         private string adresseClient;
-        private string dateCreationClient;
-        private Commerciaux leCommercial;
         #endregion
 
         public int IdClient
@@ -29,12 +26,6 @@ namespace InfoTools
         {
             get { return nomClient; }
             set { nomClient = value; }
-        }
-
-        public string PrenomClient
-        {
-            get { return prenomClient; }
-            set { prenomClient = value; }
         }
 
         public string EmailClient
@@ -55,35 +46,21 @@ namespace InfoTools
             set { adresseClient = value; }
         }
         
-        public string DateCreationClient
-        {
-            get { return dateCreationClient; }
-            set { dateCreationClient = value; }
-        }
-
-        public Commerciaux LeCommercial
-        {
-            get { return leCommercial; }
-            set { leCommercial = value; }
-        }
 
 
 
-        public Client(int idClient, string nomClient, string prenomClient, string emailClient, string telephoneClient, string adresseClient, string dateCreationClient, Commerciaux leCommercial)
+        public Client(int idClient, string nomClient, string emailClient, string telephoneClient, string adresseClient)
         {
             this.idClient = idClient;
             this.nomClient = nomClient;
-            this.prenomClient = prenomClient;
             this.emailClient = emailClient;
             this.telephoneClient = telephoneClient;
             this.adresseClient = adresseClient;
-            this.dateCreationClient = dateCreationClient;
-            this.leCommercial = leCommercial;
         }
 
         public override string ToString()
         {
-            return NomClient + " " + PrenomClient;
+            return NomClient;
         }
 
     }

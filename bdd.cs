@@ -22,7 +22,7 @@ namespace InfoTools
         public static void Initialize()
         {
             server = "localhost";
-            database = "infotools";
+            database = "infotools-new";
             uid = "root";
             password = "";
             string connectionString;
@@ -82,126 +82,6 @@ namespace InfoTools
         }
         #endregion
 
-
-        // ------------- Commerciaux -----------------------
-        #region Commerciaux
-
-        // Selection d'un commercial
-        #region Select Commerciaux
-        public static List<Commerciaux> SelectCommerciaux()
-        {
-            string query = "SELECT * FROM commerciaux";
-
-            List<Commerciaux> dbCommerciaux = new List<Commerciaux>();
-
-            if (bdd.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                while (dataReader.Read())
-                {
-                    Commerciaux leCommercial = new Commerciaux(Convert.ToInt16(dataReader["idCommerciaux"]), Convert.ToString(dataReader["nomCommerciaux"]), Convert.ToString(dataReader["prenomCommerciaux"]), Convert.ToString(dataReader["adresseCommerciaux"]), Convert.ToString(dataReader["villeCommerciaux"]), Convert.ToString(dataReader["cpCommerciaux"]), Convert.ToString(dataReader["mailCommerciaux"]), Convert.ToString(dataReader["telCommerciaux"]));
-                    dbCommerciaux.Add(leCommercial);
-                }
-
-                dataReader.Close();
-
-                bdd.CloseConnection();
-                return dbCommerciaux;
-            }
-            else
-            {
-                return dbCommerciaux;
-            }
-        }
-        #endregion
-
-        // Ajouter un commercial
-        #region Insert Commerciaux
-        public static void InsertCommerciaux(string nomCommerciaux, string prenomCommerciaux, string adrCommerciaux, string villeCommerciaux, string cpCommerciaux, string mailCommerciaux, string telCommerciaux)
-        {
-            string query = "INSERT INTO commerciaux (nomCommerciaux, prenomCommerciaux, adresseCommerciaux, villeCommerciaux, cpCommerciaux, mailCommerciaux, telCommerciaux) " +
-                           "VALUES('" + nomCommerciaux + "','" + prenomCommerciaux + "','" + adrCommerciaux + "','" + villeCommerciaux + "','" + cpCommerciaux + "','" + mailCommerciaux + "','" + telCommerciaux + "')";
-            Console.WriteLine(query);
-
-            if (bdd.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                cmd.ExecuteNonQuery();
-
-                bdd.CloseConnection();
-            }
-        }
-        #endregion
-
-        // Mis a jour d'un commercial
-        #region Update Commerciaux
-        public static void UpdateCommerciaux(int idCommerciaux, string nomCommerciaux, string prenomCommerciaux, string adrCommerciaux, string villeCommerciaux, string cpCommerciaux, string mailCommerciaux, string telCommerciaux)
-        {
-            string query = "UPDATE commerciaux SET nomCommerciaux='" + nomCommerciaux + "', prenomCommerciaux='" + prenomCommerciaux + "', adresseCommerciaux ='" + adrCommerciaux + "', villeCommerciaux ='" + villeCommerciaux + "', cpCommerciaux ='" + cpCommerciaux + "', mailCommerciaux ='" + mailCommerciaux + "', telCommerciaux ='" + telCommerciaux + "', idCommerciaux ='" + idCommerciaux + "'  WHERE idCommerciaux=" + idCommerciaux;
-            Console.WriteLine(query);
-            if (bdd.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = query;
-                cmd.Connection = connection;
-
-                cmd.ExecuteNonQuery();
-                bdd.CloseConnection();
-            }
-        }
-        #endregion
-
-        // Suprimmer un commercial
-        #region Delete Commerciaux
-        public static void DeleteCommerciaux(int idCommerciaux)
-        {
-            string query = "DELETE FROM commerciaux WHERE IdCommerciaux=" + idCommerciaux;
-
-            if (bdd.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                bdd.CloseConnection();
-            }
-        }
-        #endregion
-
-        // Rechercher un commercial
-        #region Search Commerciaux
-        public static Commerciaux SearchCommerciaux(int idCommerciaux)
-        {
-            Commerciaux leCommercial = null;
-            string query = "SELECT * FROM commerciaux WHERE idCommerciaux = " + idCommerciaux;
-
-            using (MySqlConnection tempConnection = new MySqlConnection(connection.ConnectionString))
-            {
-                tempConnection.Open();
-                using (MySqlCommand cmd = new MySqlCommand(query, tempConnection))
-                using (MySqlDataReader dataReaderS = cmd.ExecuteReader())
-                {
-                    if (dataReaderS.Read())
-                    {
-                        leCommercial = new Commerciaux(
-                            Convert.ToInt32(dataReaderS["idCommerciaux"]),
-                            Convert.ToString(dataReaderS["nomCommerciaux"]),
-                            Convert.ToString(dataReaderS["prenomCommerciaux"]),
-                            Convert.ToString(dataReaderS["adresseCommerciaux"]),
-                            Convert.ToString(dataReaderS["villeCommerciaux"]),
-                            Convert.ToString(dataReaderS["cpCommerciaux"]),
-                            Convert.ToString(dataReaderS["mailCommerciaux"]),
-                            Convert.ToString(dataReaderS["telCommerciaux"]));
-                    }
-                }
-            }
-            return leCommercial;
-        }
-        #endregion
-
-        #endregion
-
         // ------------- Prospect --------------------------
         #region Prospect
 
@@ -220,7 +100,7 @@ namespace InfoTools
 
                 while (dataReader.Read())
                 {
-                    Prospect leProspect = new Prospect(Convert.ToInt16(dataReader["idProspect"]), Convert.ToString(dataReader["nomProspect"]), Convert.ToString(dataReader["prenomProspect"]), Convert.ToString(dataReader["telephoneProspect"]), Convert.ToString(dataReader["emailProspect"]), Convert.ToString(dataReader["dateCreation"]), SearchCommerciaux(Convert.ToInt32(dataReader["idCommerciaux"])));
+                    Prospect leProspect = new Prospect(Convert.ToInt16(dataReader["id"]), Convert.ToString(dataReader["nom"]), Convert.ToString(dataReader["email"]), Convert.ToString(dataReader["telephone"]), Convert.ToString(dataReader["adresse"]));
                     dbProspect.Add(leProspect);
                 }
 
@@ -238,10 +118,10 @@ namespace InfoTools
 
         // Ajouter un Prospect
         #region Insert Prospect
-        public static void InsertProspect(string nomProspect, string prenomProspect, string telephoneProspect, string emailProspect, string dateCreation, Commerciaux leCommercial)
+        public static void InsertProspect(string nomProspect, string emailProspect, string telephoneProspect, string adresseProspect)
         {
-            string query = "INSERT INTO prospects (nomProspect, prenomProspect, telephoneProspect, emailProspect, dateCreation, idCommerciaux) " +
-                           "VALUES('" + nomProspect + "', '" + prenomProspect + "', '" + telephoneProspect + "', '" + emailProspect + "', '" + dateCreation + "', " + leCommercial.IdCommerciaux + ")";
+            string query = "INSERT INTO prospects (nom, email, telephone, adresse) " +
+                           "VALUES('" + nomProspect + "', '" + emailProspect + "', '" + telephoneProspect + "', '" + adresseProspect + "')";
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -255,9 +135,14 @@ namespace InfoTools
 
         // Mis a jour d'un Prospect
         #region Update Prospect
-        public static void UpdateProspect(int idProspect, string nomProspect, string prenomProspect, string telephoneProspect, string emailProspect, string dateCreation, int idCommerciaux)
+        public static void UpdateProspect(int idProspect, string nomProspect, string emailProspect, string telephoneProspect, string adresseProspect)
         {
-            string query = "UPDATE prospects SET nomProspect='" + nomProspect + "', prenomProspect='" + prenomProspect + "', telephoneProspect='" + telephoneProspect + "', emailProspect='" + emailProspect + "', dateCreation='" + dateCreation + "', idCommerciaux=" + idCommerciaux + " WHERE idProspect=" + idProspect;
+            string query = "UPDATE prospects SET nom='" + nomProspect +
+                           "', email='" + emailProspect +
+                           "', telephone='" + telephoneProspect +
+                           "', adresse='" + adresseProspect +
+                           "' WHERE id=" + idProspect;
+
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -273,7 +158,7 @@ namespace InfoTools
         #region Delete Prospect
         public static void DeleteProspect(int idProspect)
         {
-            string query = "DELETE FROM prospects WHERE idProspect=" + idProspect;
+            string query = "DELETE FROM prospects WHERE id=" + idProspect;
 
             if (bdd.OpenConnection() == true)
             {
@@ -289,7 +174,7 @@ namespace InfoTools
         public static Prospect SearchProspect(int idProspect)
         {
             Prospect leProspect = null;
-            string query = "SELECT * FROM prospects WHERE idProspect = " + idProspect;
+            string query = "SELECT * FROM prospects WHERE id = " + idProspect;
 
             using (MySqlConnection tempConnection = new MySqlConnection(connection.ConnectionString))
             {
@@ -300,13 +185,11 @@ namespace InfoTools
                     if (dataReaderS.Read())
                     {
                         leProspect = new Prospect(
-                            Convert.ToInt32(dataReaderS["idProspect"]),
-                            Convert.ToString(dataReaderS["nomProspect"]),
-                            Convert.ToString(dataReaderS["prenomProspect"]),
-                            Convert.ToString(dataReaderS["telephoneProspect"]),
-                            Convert.ToString(dataReaderS["emailProspect"]),
-                            Convert.ToString(dataReaderS["dateCreation"]),
-                            SearchCommerciaux(Convert.ToInt32(dataReaderS["idCommerciaux"])));
+                            Convert.ToInt32(dataReaderS["id"]),
+                            Convert.ToString(dataReaderS["nom"]),
+                            Convert.ToString(dataReaderS["email"]),
+                            Convert.ToString(dataReaderS["telephonet"]),
+                            Convert.ToString(dataReaderS["adresse"]));
                     }
                 }
             }
@@ -323,37 +206,46 @@ namespace InfoTools
         #region Select Client
         public static List<Client> SelectClient()
         {
-            string query = "SELECT * FROM clients";
+            string query = "SELECT id, nom, email, telephone, adresse FROM clients";
 
             List<Client> dbClient = new List<Client>();
 
-            if (bdd.OpenConnection() == true)
+            if (bdd.OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())
                 {
-                    Client leClient = new Client(Convert.ToInt16(dataReader["idClient"]), Convert.ToString(dataReader["nomClient"]), Convert.ToString(dataReader["prenomClient"]), Convert.ToString(dataReader["emailClient"]), Convert.ToString(dataReader["telephoneClient"]), Convert.ToString(dataReader["adresseClient"]), Convert.ToString(dataReader["dateCreationClient"]), SearchCommerciaux(Convert.ToInt32(dataReader["idCommerciaux"])));
+                    Client leClient = new Client(
+                        Convert.ToInt32(dataReader["id"]),
+                        dataReader["nom"].ToString(),
+                        dataReader["email"].ToString(),
+                        dataReader["telephone"].ToString(),
+                        dataReader["adresse"].ToString()
+                    );
+
                     dbClient.Add(leClient);
                 }
 
                 dataReader.Close();
                 bdd.CloseConnection();
-                return dbClient;
             }
-            else
-            {
-                return dbClient;
-            }
+
+            return dbClient;
         }
         #endregion
 
+
         // Ajouter un client
         #region Insert Client
-        public static void InsertClient(string nomClient, string prenomClient, string emailClient, string telephoneClient, string adresseClient, string dateCreationClient, Commerciaux leCommercial)
+        public static void InsertClient(string nomClient, string emailClient, string telephoneClient, string adresseClient)
         {
-            string query = "INSERT INTO clients (nomClient, prenomClient, emailClient, telephoneClient, adresseClient, dateCreationClient, idCommerciaux) VALUES('" + nomClient + "','" + prenomClient + "','" + emailClient + "'," + telephoneClient + ",'" + adresseClient + "','" + dateCreationClient + "'," + leCommercial.IdCommerciaux + ")";
+            string query = "INSERT INTO clients (nom, email, telephone, adresse) VALUES('"
+                + nomClient + "','"
+                + emailClient + "','"
+                + telephoneClient + "','"
+                + adresseClient + "')";
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -368,9 +260,9 @@ namespace InfoTools
 
         // Mis a jour d'un client
         #region Update Client
-        public static void UpdateClient(int idClient, string nomClient, string prenomClient, string emailClient, string telephoneClient, string adresseClient, string dateCreationClient, int idCommerciaux)
+        public static void UpdateClient(int idClient, string nomClient, string emailClient, string telephoneClient, string adresseClient)
         {
-            string query = "UPDATE clients SET nomClient='" + nomClient + "', prenomClient='" + prenomClient + "', emailClient='" + emailClient + "', telephoneClient = " + telephoneClient + ", adresseClient='" + adresseClient + "', dateCreationClient='" + dateCreationClient + "', idCommerciaux=" + idCommerciaux + " WHERE idClient=" + idClient;
+            string query = "UPDATE clients SET nom='" + nomClient + "', email='" + emailClient + "', telephone='" + telephoneClient + "', adresse='" + adresseClient + "' WHERE id=" + idClient;
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -389,7 +281,7 @@ namespace InfoTools
         #region Delete Client
         public static void DeleteClient(int idClient)
         {
-            string query = "DELETE FROM clients WHERE idClient=" + idClient;
+            string query = "DELETE FROM clients WHERE id=" + idClient;
 
             if (bdd.OpenConnection() == true)
             {
@@ -405,7 +297,7 @@ namespace InfoTools
         public static Client SearchClient(int idClient)
         {
             Client leClient = null;
-            string query = "SELECT * FROM clients WHERE idClient = " + idClient;
+            string query = "SELECT * FROM clients WHERE id = " + idClient;
 
             using (MySqlConnection tempConnection = new MySqlConnection(connection.ConnectionString))
             {
@@ -416,18 +308,131 @@ namespace InfoTools
                     if (dataReaderS.Read())
                     {
                         leClient = new Client(
-                            Convert.ToInt32(dataReaderS["idClient"]),
-                            Convert.ToString(dataReaderS["nomClient"]),
-                            Convert.ToString(dataReaderS["prenomClient"]),
-                            Convert.ToString(dataReaderS["emailClient"]),
-                            Convert.ToString(dataReaderS["telephoneClient"]),
-                            Convert.ToString(dataReaderS["adresseClient"]),
-                            Convert.ToString(dataReaderS["dateCreationClient"]),
-                            SearchCommerciaux(Convert.ToInt32(dataReaderS["idCommerciaux"])));
+                            Convert.ToInt32(dataReaderS["id"]),
+                            Convert.ToString(dataReaderS["nom"]),
+                            Convert.ToString(dataReaderS["email"]),
+                            Convert.ToString(dataReaderS["telephone"]),
+                            Convert.ToString(dataReaderS["adresse"]));
                     }
                 }
             }
             return leClient;
+        }
+        #endregion
+
+        #endregion
+
+        // ------------- Commerciaux -----------------------
+        #region Commerciaux
+
+        // Selection d'un commercial
+        #region Select Commerciaux
+        public static List<Commerciaux> SelectCommercials()
+        {
+            string query = "SELECT * FROM commercials";
+
+            List<Commerciaux> dbCommerciaux = new List<Commerciaux>();
+
+            if (bdd.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    Commerciaux leCommercial = new Commerciaux(Convert.ToInt16(dataReader["id"]), Convert.ToString(dataReader["nom"]), Convert.ToString(dataReader["email"]), Convert.ToString(dataReader["telephone"]), Convert.ToString(dataReader["adresse"]));
+                    dbCommerciaux.Add(leCommercial);
+                }
+
+                dataReader.Close();
+
+                bdd.CloseConnection();
+                return dbCommerciaux;
+            }
+            else
+            {
+                return dbCommerciaux;
+            }
+        }
+        #endregion
+
+        // Ajouter un commercial
+        #region Insert Commerciaux
+        public static void InsertCommerciaux(string nomCommerciaux, string mailCommerciaux, string telCommerciaux, string adrCommerciaux)
+        {
+            string query = "INSERT INTO commercials (nom, email, telephone, adresse) " +
+                           "VALUES('" + nomCommerciaux + "','" + mailCommerciaux + "','" + telCommerciaux + "','" + adrCommerciaux + "')";
+            Console.WriteLine(query);
+
+            if (bdd.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.ExecuteNonQuery();
+
+                bdd.CloseConnection();
+            }
+        }
+        #endregion
+
+        // Mis a jour d'un commercial
+        #region Update Commerciaux
+        public static void UpdateCommerciaux(int idCommerciaux, string nomCommerciaux, string mailCommerciaux, string telCommerciaux, string adrCommerciaux)
+        {
+            string query = "UPDATE commercials SET nom='" + nomCommerciaux + "', email='" + mailCommerciaux + "', telephone ='" + telCommerciaux + "', adresse ='" + adrCommerciaux + "', id ='" + idCommerciaux + "'  WHERE id=" + idCommerciaux;
+            Console.WriteLine(query);
+            if (bdd.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                cmd.ExecuteNonQuery();
+                bdd.CloseConnection();
+            }
+        }
+        #endregion
+
+        // Suprimmer un commercial
+        #region Delete Commerciaux
+        public static void DeleteCommerciaux(int idCommerciaux)
+        {
+            string query = "DELETE FROM commercials WHERE Id=" + idCommerciaux;
+
+            if (bdd.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                bdd.CloseConnection();
+            }
+        }
+        #endregion
+
+        // Rechercher un commercial
+        #region Search Commerciaux
+        public static Commerciaux SearchCommerciaux(int idCommerciaux)
+        {
+            Commerciaux leCommercial = null;
+            string query = "SELECT * FROM commercials WHERE id = " + idCommerciaux;
+
+            using (MySqlConnection tempConnection = new MySqlConnection(connection.ConnectionString))
+            {
+                tempConnection.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, tempConnection))
+                using (MySqlDataReader dataReaderS = cmd.ExecuteReader())
+                {
+                    if (dataReaderS.Read())
+                    {
+                        leCommercial = new Commerciaux(
+                            Convert.ToInt32(dataReaderS["id"]),
+                            Convert.ToString(dataReaderS["nom"]),
+                            Convert.ToString(dataReaderS["email"]),
+                            Convert.ToString(dataReaderS["telephone"]),
+                            Convert.ToString(dataReaderS["adresse"]));
+                    }
+                }
+            }
+            return leCommercial;
         }
         #endregion
 
@@ -440,7 +445,7 @@ namespace InfoTools
         #region Select Produit
         public static List<Produit> SelectProduit()
         {
-            string query = "SELECT * FROM produit";
+            string query = "SELECT * FROM produits";
 
             List<Produit> dbProduit = new List<Produit>();
 
@@ -451,7 +456,7 @@ namespace InfoTools
 
                 while (dataReader.Read())
                 {
-                    Produit leProduit = new Produit(Convert.ToInt16(dataReader["idProduit"]), Convert.ToString(dataReader["nomProduit"]), Convert.ToString(dataReader["desciptionProduit"]), Convert.ToInt16(dataReader["prixUnitaire"]), Convert.ToString(dataReader["dateAjoutProduit"]), Convert.ToString(dataReader["imgProduit"]));
+                    Produit leProduit = new Produit(Convert.ToInt16(dataReader["id"]), Convert.ToString(dataReader["nom_produit"]), Convert.ToString(dataReader["description"]), Convert.ToInt16(dataReader["prix"]), Convert.ToInt16(dataReader["stock"]));
                     dbProduit.Add(leProduit);
                 }
 
@@ -468,14 +473,13 @@ namespace InfoTools
 
         // Ajouter un produit
         #region Insert Produit
-        public static void InsertProduit(string nomProduit, string desciptionProduit, int prixUnitaire, string dateAjoutProduit, string imgProduit)
+        public static void InsertProduit(string nom_produit, string description, int prix, int stock)
         {
-            string query = "INSERT INTO produit (nomProduit, desciptionProduit, prixUnitaire, dateAjoutProduit, imgProduit) " +
-                           "VALUES('" + nomProduit + "','" 
-                                      + desciptionProduit + "','" 
-                                      + prixUnitaire + "','" 
-                                      + dateAjoutProduit + "','" 
-                                      + imgProduit + "')";
+            string query = "INSERT INTO produits (nom_produit, description, prix, stock) " +
+                           "VALUES('" + nom_produit + "','" 
+                                      + description + "','" 
+                                      + prix + "','" 
+                                      + stock + "')";
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -489,9 +493,9 @@ namespace InfoTools
 
         // Mis a jour d'un produit
         #region Update Produit
-        public static void UpdateProduit(int idProduit, string nomProduit, string desciptionProduit, int prixUnitaire, string dateAjoutProduit, string imgProduit)
+        public static void UpdateProduit(int id, string nom_produit, string description, int prix, int stock)
         {
-            string query = "UPDATE produit SET nomProduit='" + nomProduit + "', desciptionProduit='" + desciptionProduit + "', prixUnitaire ='" + prixUnitaire + "', dateAjoutProduit ='" + dateAjoutProduit + "', imgProduit ='" + imgProduit + "', idProduit ='" + idProduit + "'  WHERE idProduit=" + idProduit;
+            string query = "UPDATE produits SET nom_produit='" + nom_produit + "', description='" + description + "', prix ='" + prix + "', stock ='" + stock + "', id ='" + id + "'  WHERE id =" + id;
             Console.WriteLine(query);
             if (bdd.OpenConnection() == true)
             {
@@ -509,7 +513,7 @@ namespace InfoTools
         #region Delete Produit
         public static void DeleteProduit(int idProduit)
         {
-            string query = "DELETE FROM produit WHERE idProduit=" + idProduit;
+            string query = "DELETE FROM produits WHERE id=" + idProduit;
 
             if (bdd.OpenConnection() == true)
             {
@@ -536,12 +540,11 @@ namespace InfoTools
                     if (dataReaderS.Read())
                     {
                         leProduit = new Produit(
-                            Convert.ToInt32(dataReaderS["idProduit"]),
-                            Convert.ToString(dataReaderS["nomProduit"]),
-                            Convert.ToString(dataReaderS["desciptionProduit"]),
-                            Convert.ToInt16(dataReaderS["prixUnitaire"]),
-                            Convert.ToString(dataReaderS["dateAjoutProduit"]),
-                            Convert.ToString(dataReaderS["imgProduit"]));
+                            Convert.ToInt32(dataReaderS["id"]),
+                            Convert.ToString(dataReaderS["nom_produit"]),
+                            Convert.ToString(dataReaderS["description"]),
+                            Convert.ToInt16(dataReaderS["prix"]),
+                            Convert.ToInt16(dataReaderS["stock"]));
                     }
                 }
             }
@@ -558,7 +561,7 @@ namespace InfoTools
         #region Select RendezVous
         public static List<RendezVous> SelectRendezVous()
         {
-            string query = "SELECT * FROM rendezvous";
+            string query = "SELECT * FROM rendez_vous";
 
             List<RendezVous> dbRendezVous = new List<RendezVous>();
 
@@ -569,7 +572,7 @@ namespace InfoTools
 
                 while (dataReader.Read())
                 {
-                    RendezVous leRendezVous = new RendezVous(Convert.ToInt16(dataReader["idRendezVous"]), Convert.ToString(dataReader["dateRendezVous"]), Convert.ToString(dataReader["descriptionRendezVous"]), (TimeSpan)dataReader["heureDebutRendezVous"], (TimeSpan)dataReader["heureFinRendezVous"], SearchCommerciaux(Convert.ToInt32(dataReader["idCommerciaux"])), SearchProspect(Convert.ToInt32(dataReader["idProspect"])), SearchClient(Convert.ToInt32(dataReader["idClient"])));
+                    RendezVous leRendezVous = new RendezVous(Convert.ToInt16(dataReader["id"]), SearchClient(Convert.ToInt32(dataReader["client_id"])), SearchCommerciaux(Convert.ToInt32(dataReader["commercial_id"])), Convert.ToString(dataReader["date_rendez_vous"]), (TimeSpan)dataReader["heure_rendez_vous"], Convert.ToString(dataReader["description"]));
                     dbRendezVous.Add(leRendezVous);
                 }
 
@@ -586,16 +589,19 @@ namespace InfoTools
 
         // Ajout d'un Rendez Vous
         #region Insert RendezVous
-        public static void InsertRendezVous(string dateRendezVous, string descriptionRendezVous, string heureDebutRendezVous, string heureFinRendezVous, Commerciaux leCommercial, Prospect leProspect, Client leClient)
+        public static void InsertRendezVous(Client leClient, Commerciaux leCommercial, string date_rendez_vous, string heure_rendez_vous, string description)
         {
-            string query = "INSERT INTO rendezvous (dateRendezVous, descriptionRendezVous, heureDebutRendezVous, heureFinRendezVous, idCommerciaux, idProspect, idClient) " +
-                           "VALUES('" + dateRendezVous + "','" 
-                                      + descriptionRendezVous + "','" 
-                                      + heureDebutRendezVous + "','" 
-                                      + heureFinRendezVous + "','" 
-                                      + leCommercial.IdCommerciaux + "','" 
-                                      + leProspect.IdProspect + "','" 
-                                      + leClient.IdClient + "')";
+            // Conversion du format de date
+            DateTime date = DateTime.ParseExact(date_rendez_vous, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            string dateFormatSql = date.ToString("yyyy-MM-dd");
+
+            string query = "INSERT INTO rendez_vous (client_id, commercial_id, date_rendez_vous, heure_rendez_vous, description) " +
+                           "VALUES('" + leClient.IdClient + "','"
+                                      + leCommercial.IdCommerciaux + "','"
+                                      + dateFormatSql + "','"
+                                      + heure_rendez_vous + "','"
+                                      + description + "')";
+
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -605,31 +611,67 @@ namespace InfoTools
                 bdd.CloseConnection();
             }
         }
+
         #endregion
 
         // Mis a jour d'un Rendez vous
         #region Update RendezVous
-        public static void UpdateRendezVous(int idRendezVous, string dateRendezVous, string descriptionRendezVous, string heureDebutRendezVous, string heureFinRendezVous, int idCommerciaux, int idProspect, int idClient)
+        public static void UpdateRendezVous(int id, int clientId, int commercialId, string date_rendez_vous, string heure_rendez_vous, string description)
         {
-            string query = "UPDATE rendezvous SET dateRendezVous='" + dateRendezVous + "', descriptionRendezVous='" + descriptionRendezVous + "', heureDebutRendezVous ='" + heureDebutRendezVous + "', heureFinRendezVous ='" + heureFinRendezVous + "', idCommerciaux ='" + idCommerciaux + "', idProspect ='" + idProspect + "', idClient ='" + idClient + "', idRendezVous ='" + idRendezVous + "'  WHERE idRendezVous=" + idRendezVous;
+            // Conversion du format de date
+            DateTime date = DateTime.ParseExact(date_rendez_vous, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            string dateFormatSql = date.ToString("yyyy-MM-dd");
+
+            string query = "UPDATE rendez_vous SET " +
+                           "client_id = @clientId, " +
+                           "commercial_id = @commercialId, " +
+                           "date_rendez_vous = @dateRv, " +
+                           "heure_rendez_vous = @heureRv, " +
+                           "description = @desc " +
+                           "WHERE id = @id";
+
             Console.WriteLine(query);
-            if (bdd.OpenConnection() == true)
+
+            if (bdd.OpenConnection())
             {
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.CommandText = query;
-                cmd.Connection = connection;
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                cmd.Parameters.AddWithValue("@clientId", clientId);
+                cmd.Parameters.AddWithValue("@commercialId", commercialId);
+                cmd.Parameters.AddWithValue("@dateRv", dateFormatSql);
+                cmd.Parameters.AddWithValue("@heureRv", heure_rendez_vous);
+                cmd.Parameters.AddWithValue("@desc", description);
+                cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
                 bdd.CloseConnection();
             }
         }
+
         #endregion
+
+        //#region Update RendezVous
+        //public static void UpdateRendezVous(int id, Client leClient, Commerciaux leCommercial, string date_rendez_vous, string heure_rendez_vous, string description)
+        //{
+        //    string query = "UPDATE rendez_vous SET client_id='" + leClient + "', commercial_id='" + leCommercial + "', date_rendez_vous ='" + date_rendez_vous + "', heure_rendez_vous ='" + heure_rendez_vous + "', description ='" + description + "' , id ='" + id + "'  WHERE id =" + id;
+        //    Console.WriteLine(query);
+        //    if (bdd.OpenConnection() == true)
+        //    {
+        //        MySqlCommand cmd = new MySqlCommand();
+        //        cmd.CommandText = query;
+        //        cmd.Connection = connection;
+
+        //        cmd.ExecuteNonQuery();
+        //        bdd.CloseConnection();
+        //    }
+        //}
+        //#endregion
 
         // Suprimmer un rendez vous
         #region Delete RendezVous
         public static void DeleteRendezVous(int idRendezVous)
         {
-            string query = "DELETE FROM rendezvous WHERE idRendezVous=" + idRendezVous;
+            string query = "DELETE FROM rendez_vous WHERE id=" + idRendezVous;
 
             if (bdd.OpenConnection() == true)
             {
@@ -642,16 +684,16 @@ namespace InfoTools
 
         #endregion
 
-        // ------------- Facture ---------------------------
-        #region Facture
+        // ------------- Commande ---------------------------
+        #region Commande
 
         // Selection d'une facture
-        #region Select Facture
-        public static List<Facture> SelectFacture()
+        #region Select Commande
+        public static List<Commande> SelectCommande()
         {
-            string query = "SELECT * FROM factures";
+            string query = "SELECT * FROM commandes";
 
-            List<Facture> dbFacture = new List<Facture>();
+            List<Commande> dbCommande = new List<Commande>();
 
             if (bdd.OpenConnection() == true)
             {
@@ -660,39 +702,32 @@ namespace InfoTools
 
                 while (dataReader.Read())
                 {
-                    Facture laFacture = new Facture(
-                        Convert.ToInt16(dataReader["idFacture"]), 
-                        Convert.ToString(dataReader["dateFacture"]),
-                        Convert.ToInt32(dataReader["montantTotal"]),
-                        Convert.ToInt16(dataReader["statutFacture"]),
-                        Convert.ToString(dataReader["datePaiment"]),
-                        SearchProduit(Convert.ToInt32(dataReader["numProduit"])),
-                        SearchClient(Convert.ToInt32(dataReader["idClient"])));
-                    dbFacture.Add(laFacture);
+                    Commande laCommande = new Commande(
+                        Convert.ToInt16(dataReader["id"]),
+                        SearchClient(Convert.ToInt32(dataReader["client_id"])),
+                        Convert.ToInt32(dataReader["montant_total"]),
+                        Convert.ToString(dataReader["created_at"]));
+                    dbCommande.Add(laCommande);
                 }
 
                 dataReader.Close();
                 bdd.CloseConnection();
-                return dbFacture;
+                return dbCommande;
             }
             else
             {
-                return dbFacture;
+                return dbCommande;
             }
         }
         #endregion
 
-        // Ajouter une Facture
-        #region Insert Facture
-        public static void InsertFacture(string dateFacture, int montantTotal, int statutFacture, string datePaiment, Produit leProduit, Client leClient)
+        // Ajouter une Comande
+        #region Insert Commande
+        public static void InsertCommande(Client leClient, int montant_total)
         {
-            string query = "INSERT INTO factures (dateFacture, montantTotal, statutFacture, datePaiment, numProduit, idClient) " +
-                           "VALUES('" + dateFacture + "', '" 
-                                      + montantTotal + "', '" 
-                                      + statutFacture + "', '" 
-                                      + datePaiment + "', '" 
-                                      + leProduit.IdProduit + "', " 
-                                      + leClient.IdClient + ")";
+            string query = "INSERT INTO commandes (client_id, montant_total) " +
+                           "VALUES('" + leClient.IdClient + "', '" 
+                                      + montant_total + ")";
             Console.WriteLine(query);
 
             if (bdd.OpenConnection() == true)
@@ -702,16 +737,148 @@ namespace InfoTools
                 bdd.CloseConnection();
             }
         }
+
+        public static void InsertCommandeAvecProduits(Commande commande)
+        {
+            if (!bdd.OpenConnection()) return;
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.Connection = connection;
+
+            // 1. Insérer la commande
+            cmd.CommandText = "INSERT INTO commandes (client_id, montant_total, created_at) VALUES (@client, @total, NOW()); SELECT LAST_INSERT_ID();";
+            cmd.Parameters.AddWithValue("@client", commande.LeClient.IdClient);
+            cmd.Parameters.AddWithValue("@total", commande.MontantTotal);
+
+            int idCommande;
+            using (var reader = cmd.ExecuteReader())
+            {
+                reader.Read();
+                idCommande = Convert.ToInt32(reader[0]);
+            }
+
+            // 2. Insérer les produits liés
+            foreach (var ligne in commande.ProduitsCommande)
+            {
+                cmd = new MySqlCommand("INSERT INTO commande_produit (commande_id, produit_id, quantite, prix_unitaire, created_at) VALUES (@idCommande, @idProduit, @quantite, @prix, NOW());", connection);
+                cmd.Parameters.AddWithValue("@idCommande", idCommande);
+                cmd.Parameters.AddWithValue("@idProduit", ligne.IdProduit);
+                cmd.Parameters.AddWithValue("@quantite", ligne.Quantite);
+                cmd.Parameters.AddWithValue("@prix", ligne.PrixUnitaire);
+                cmd.ExecuteNonQuery();
+            }
+
+            bdd.CloseConnection();
+        }
+        public static void AjouterProduitDansCommande(int commandeId, int produitId, int quantite, decimal prixUnitaire)
+        {
+            string query = @"INSERT INTO commande_produit (commande_id, produit_id, quantite, prix_unitaire, created_at)
+                     VALUES (@commandeId, @produitId, @quantite, @prix, NOW())";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@commandeId", commandeId);
+                cmd.Parameters.AddWithValue("@produitId", produitId);
+                cmd.Parameters.AddWithValue("@quantite", quantite);
+                cmd.Parameters.AddWithValue("@prix", prixUnitaire);
+                cmd.ExecuteNonQuery();
+                bdd.CloseConnection();
+            }
+        }
+
+        public static void SupprimerProduitDansCommande(int commandeId, int produitId)
+        {
+            string query = @"DELETE FROM commande_produit
+                     WHERE commande_id = @commandeId AND produit_id = @produitId";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@commandeId", commandeId);
+                cmd.Parameters.AddWithValue("@produitId", produitId);
+                cmd.ExecuteNonQuery();
+                bdd.CloseConnection();
+            }
+        }
+
+
+        public static List<LigneCommande> GetProduitsCommande(int commandeId)
+        {
+            List<LigneCommande> produits = new List<LigneCommande>();
+
+            string query = @"SELECT cp.produit_id, p.nom_produit, cp.quantite, cp.prix_unitaire
+                     FROM commande_produit cp
+                     JOIN produits p ON p.id = cp.produit_id
+                     WHERE cp.commande_id = @commandeId";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@commandeId", commandeId);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    produits.Add(new LigneCommande(
+                        Convert.ToInt32(reader["produit_id"]),
+                        reader["nom_produit"].ToString(),
+                        Convert.ToInt32(reader["quantite"]),
+                        Convert.ToDecimal(reader["prix_unitaire"])
+                    ));
+                }
+
+                reader.Close();
+                bdd.CloseConnection();
+            }
+
+            return produits;
+        }
+
+        public static List<ProduitSelectionne> GetProduitsParCommande(int commandeId)
+        {
+            List<ProduitSelectionne> produits = new List<ProduitSelectionne>();
+            string query = "SELECT produit_id, quantite, prix_unitaire FROM commande_produit WHERE commande_id = @commandeId";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@commandeId", commandeId);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    produits.Add(new ProduitSelectionne
+                    {
+                        IdProduit = Convert.ToInt32(reader["produit_id"]),
+                        Quantite = Convert.ToInt32(reader["quantite"]),
+                        Prix = Convert.ToDecimal(reader["prix_unitaire"])
+                    });
+                }
+
+                reader.Close();
+                bdd.CloseConnection();
+            }
+
+            return produits;
+        }
+
+
+
         #endregion
 
-        // Mise a jours de la facture
-        #region Update Facture
-        public static void UpdateFacture(int idFacture, string dateFacture, int montantTotal, int statutFacture, string datePaiment, int numProduit, int idClient)
+        // Mise a jours de la Comamnde
+        #region Update Commande
+        public static void UpdateCommande(int id, int clientId, decimal montant_total)
         {
-            string query = "UPDATE factures SET dateFacture='" + dateFacture + "', montantTotal='" + montantTotal + "', statutFacture='" + statutFacture + "', datePaiment='" + datePaiment + "', numProduit='" + numProduit + "', idClient=" + idClient + " WHERE idFacture=" + idFacture;
+            string query = "UPDATE commandes SET " +
+                           "client_id = '" + clientId + "', " +
+                           "montant_total = '" + montant_total + "' " +
+                           "WHERE id = " + id;
+
             Console.WriteLine(query);
 
-            if (bdd.OpenConnection() == true)
+            if (bdd.OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -720,11 +887,12 @@ namespace InfoTools
         }
         #endregion
 
-        // Suprimmer facture
-        #region Delete Facture
-        public static void DeleteFacture(int idFacture)
+
+        // Suprimmer commande
+        #region Delete Commande
+        public static void DeleteCommande(int idCommande)
         {
-            string query = "DELETE FROM factures WHERE idFacture=" + idFacture;
+            string query = "DELETE FROM commandes WHERE id=" + idCommande;
 
             if (bdd.OpenConnection() == true)
             {
@@ -733,6 +901,79 @@ namespace InfoTools
                 bdd.CloseConnection();
             }
         }
+
+        public static void SupprimerProduitsCommande(int commandeId)
+        {
+            string query = "DELETE FROM commande_produit WHERE commande_id = @commandeId";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@commandeId", commandeId);
+                cmd.ExecuteNonQuery();
+                bdd.CloseConnection();
+            }
+        }
+
+        #endregion
+
+        // Calculer le montant total de la commande
+        #region Montant Total
+        public static decimal CalculerMontantTotalCommande(int commandeId)
+        {
+            decimal total = 0;
+            string query = @"SELECT quantite, prix_unitaire FROM commande_produit WHERE commande_id = @commandeId";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@commandeId", commandeId);
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    int qte = Convert.ToInt32(reader["quantite"]);
+                    decimal prix = Convert.ToDecimal(reader["prix_unitaire"]);
+                    total += qte * prix;
+                }
+
+                reader.Close();
+                bdd.CloseConnection();
+            }
+
+            return total;
+        }
+        public static void UpdateMontantCommande(int commandeId, decimal montant)
+        {
+            string query = "UPDATE commandes SET montant_total = @montant WHERE id = @id";
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@montant", montant);
+                cmd.Parameters.AddWithValue("@id", commandeId);
+                cmd.ExecuteNonQuery();
+                bdd.CloseConnection();
+            }
+        }
+
+        public static int InsertCommandeEtRetourneId(int clientId, decimal montantTotal)
+        {
+            string query = "INSERT INTO commandes (client_id, montant_total, created_at) VALUES (@clientId, @montant, NOW()); SELECT LAST_INSERT_ID();";
+            int idCommande = 0;
+
+            if (bdd.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@clientId", clientId);
+                cmd.Parameters.AddWithValue("@montant", montantTotal);
+                idCommande = Convert.ToInt32(cmd.ExecuteScalar());
+                bdd.CloseConnection();
+            }
+
+            return idCommande;
+        }
+
         #endregion
 
         #endregion

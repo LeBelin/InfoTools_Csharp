@@ -11,11 +11,9 @@ namespace InfoTools
         #region Propriétés
         private int idProspect;
         private string nomProspect;
-        private string prenomProspect;
-        private string telephoneProspect;
         private string emailProspect;
-        private string dateCreation;
-        private Commerciaux leCommercial;
+        private string telephoneProspect;
+        private string adresseProspect;
         #endregion
 
         public int IdProspect
@@ -30,10 +28,10 @@ namespace InfoTools
             set { nomProspect = value; }
         }
 
-        public string PrenomProspect
+        public string EmailProspect
         {
-            get { return prenomProspect; }
-            set { prenomProspect = value; }
+            get { return emailProspect; }
+            set { emailProspect = value; }
         }
 
         public string TelephoneProspect
@@ -42,40 +40,27 @@ namespace InfoTools
             set { telephoneProspect = value; }
         }
 
-        public string EmailProspect
+        public string AdresseProspect
         {
-            get { return emailProspect; }
-            set { emailProspect = value; }
-        }
-
-        public string DateCreation
-        {
-            get { return dateCreation; }
-            set { dateCreation = value; }
-        }
-
-        public Commerciaux LeCommercial
-        {
-            get { return leCommercial; }
-            set { leCommercial = value; }
+            get { return adresseProspect; }
+            set { adresseProspect = value; }
         }
 
 
 
-        public Prospect(int idProspect, string nomProspect, string prenomProspect, string telephoneProspect, string emailProspect, string dateCreation, Commerciaux leCommercial)
+
+        public Prospect(int idProspect, string nomProspect, string emailProspect, string telephoneProspect, string adresseProspect)
         {
             this.idProspect = idProspect;
             this.nomProspect = nomProspect;
-            this.prenomProspect = prenomProspect;
-            this.telephoneProspect = telephoneProspect;
             this.emailProspect = emailProspect;
-            this.dateCreation = dateCreation;
-            this.leCommercial = leCommercial;
+            this.telephoneProspect = telephoneProspect;
+            this.adresseProspect = adresseProspect;
         }
 
         public override string ToString()
         {
-            return NomProspect + " " + PrenomProspect;
+            return NomProspect;
         }
 
 

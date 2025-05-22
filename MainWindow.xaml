@@ -48,22 +48,16 @@
                     <TextBox x:Name="txtNumCommercial" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
                     <Label x:Name="labelNumPigiste" Content="Numéro de commercial" HorizontalAlignment="Left" Margin="346,15,0,0" VerticalAlignment="Top" Width="150"/>
                     <TextBox x:Name="txtNomCommercial" HorizontalAlignment="Left" Height="23" Margin="346,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtPrenomCommercial" HorizontalAlignment="Left" Height="23" Margin="346,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lblNomPigiste" Content="Nom" HorizontalAlignment="Left" Margin="346,65,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="lblPrenomPigiste" Content="Prénom" HorizontalAlignment="Left" Margin="346,119,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtCPCommercial" HorizontalAlignment="Left" Height="23" Margin="544,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtVilleCommercial" HorizontalAlignment="Left" Height="23" Margin="544,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="lblCPPigiste" Content="Code Postal" HorizontalAlignment="Left" Margin="545,65,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="lblVillePigiste" Content="Ville" HorizontalAlignment="Left" Margin="545,119,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtAdresseCommercial" HorizontalAlignment="Left" Height="23" Margin="544,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtAdresseCommercial" HorizontalAlignment="Left" Height="105" Margin="544,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lblAdressePigiste" Content="Adresse" HorizontalAlignment="Left" Margin="545,15,0,0" VerticalAlignment="Top" Width="150"/>
                     <Button x:Name="btnModifierCommerciaux" Content="Modifier" HorizontalAlignment="Left" Margin="540,296,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierCommerciaux_Click" />
                     <Button x:Name="btnAjouterCommerciaux" Content="Ajouter" HorizontalAlignment="Left" Margin="540,272,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterCommerciaux_Click" />
                     <Button x:Name="btnSupprimerCommerciaux" Content="Supprimer" HorizontalAlignment="Left" Margin="540,321,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerCommerciaux_Click"/>
-                    <TextBox x:Name="txtTelCommercial" HorizontalAlignment="Left" Height="23" Margin="346,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="Telephone" Content="Téléphone" HorizontalAlignment="Left" Margin="346,191,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="lblMailPigiste" Content="Email" HorizontalAlignment="Left" Margin="545,191,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="txtMailCommercial" HorizontalAlignment="Left" Height="23" Margin="545,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149"/>
+                    <TextBox x:Name="txtTelCommercial" HorizontalAlignment="Left" Height="23" Margin="346,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="Telephone" Content="Téléphone" HorizontalAlignment="Left" Margin="346,119,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Label x:Name="lblMailPigiste" Content="Email" HorizontalAlignment="Left" Margin="346,179,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtMailCommercial" HorizontalAlignment="Left" Height="23" Margin="346,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Prospect">
@@ -71,21 +65,17 @@
                     <DataGrid x:Name="dtgProspect" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgProspect_SelectionChanged"/>
                     <TextBox x:Name="txtNumProspect" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
                     <Label x:Name="lblNumContrat" Content="Numéro de prospect" HorizontalAlignment="Left" Margin="346,15,0,0" VerticalAlignment="Top" Width="126"/>
-                    <ComboBox x:Name="cboProspectCommercial" SelectedValuePath="IdCommerciaux" HorizontalAlignment="Left" Margin="540,92,0,0" VerticalAlignment="Top" Width="155"/>
-                    <TextBox x:Name="txtPrenomProspect" HorizontalAlignment="Left" Height="23" Margin="346,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtTelProspect" HorizontalAlignment="Left" Height="23" Margin="346,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtAdresseProspect" HorizontalAlignment="Left" Height="78" Margin="346,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtTelProspect" HorizontalAlignment="Left" Height="23" Margin="543,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Button x:Name="btnModifierProspect" Content="Modifier" HorizontalAlignment="Left" Margin="540,296,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierProspect_Click" />
                     <Button x:Name="btnAjouterProspect" Content="Ajouter" HorizontalAlignment="Left" Margin="540,272,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterProspect_Click" />
                     <Button x:Name="btnSupprimerProspect" Content="Supprimer" HorizontalAlignment="Left" Margin="540,321,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerProspect_Click" />
-                    <Label x:Name="lblMontantBrutContrat" Content="Prenom" HorizontalAlignment="Left" Margin="346,121,0,0" VerticalAlignment="Top" Width="115"/>
-                    <Label x:Name="lblMontantNetContrat" Content="Telephone" HorizontalAlignment="Left" Margin="346,175,0,0" VerticalAlignment="Top" Width="115"/>
-                    <Label x:Name="lblPigisteContrat" Content="Commercial" HorizontalAlignment="Left" Margin="540,66,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="lblMontantBrutContrat" Content="Adresse" HorizontalAlignment="Left" Margin="346,121,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="lblMontantNetContrat" Content="Telephone" HorizontalAlignment="Left" Margin="543,68,0,0" VerticalAlignment="Top" Width="115"/>
                     <TextBox x:Name="txtNomProspect" HorizontalAlignment="Left" Height="23" Margin="346,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lblMontantBrutContrat_Copy" Content="Nom" HorizontalAlignment="Left" Margin="346,66,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DatePicker x:Name="dtpCeationProspect" HorizontalAlignment="Left" Margin="346,255,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtMailProspect" HorizontalAlignment="Left" Height="23" Margin="540,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label x:Name="lblMontantNetContrat_Copy" Content="Mail" HorizontalAlignment="Left" Margin="540,15,0,0" VerticalAlignment="Top" Width="115"/>
-                    <Label x:Name="lblPigisteContrat_Copy" Content="Date création" HorizontalAlignment="Left" Margin="346,229,0,0" VerticalAlignment="Top" Width="115"/>
 
                 </Grid>
             </TabItem>
@@ -94,23 +84,17 @@
                     <DataGrid x:Name="dtgClient" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgClient_SelectionChanged" />
                     <TextBox x:Name="txtIdClient" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
                     <Label x:Name="lblNumMagazine" Content="N° de client" HorizontalAlignment="Left" Margin="346,15,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DatePicker x:Name="dtpCreationClient" HorizontalAlignment="Left" Margin="524,39,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="lblBouclageMagazine" Content="Date de création" HorizontalAlignment="Left" Margin="524,13,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Label x:Name="lblParutionMagazine" Content="Commercial" HorizontalAlignment="Left" Margin="524,81,0,0" VerticalAlignment="Top" Width="150"/>
                     <TextBox x:Name="txtNomClient" HorizontalAlignment="Left" Height="23" Margin="346,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label Content="Nom" HorizontalAlignment="Left" Margin="346,81,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Button x:Name="btnModifierClient" Content="Modifier" HorizontalAlignment="Left" Margin="540,296,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierClient_Click"/>
-                    <Button x:Name="btnAjouterClient" Content="Ajouter" HorizontalAlignment="Left" Margin="540,272,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterClient_Click" />
-                    <Button x:Name="btnSupprimerClient" Content="Supprimer" HorizontalAlignment="Left" Margin="540,321,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerClient_Click" />
-                    <TextBox x:Name="txtPrenomClient" HorizontalAlignment="Left" Height="23" Margin="346,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label Content="Prenom" HorizontalAlignment="Left" Margin="346,143,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtTelClient" HorizontalAlignment="Left" Height="22" Margin="346,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
-                    <Label Content="Téléphone" HorizontalAlignment="Left" Margin="346,209,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtEmailClient" HorizontalAlignment="Left" Height="23" Margin="346,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label Content="Email" HorizontalAlignment="Left" Margin="346,273,0,0" VerticalAlignment="Top" Width="150"/>
-                    <ComboBox x:Name="cboCommercialClient" SelectedValuePath="IdCommerciaux" HorizontalAlignment="Left" Margin="524,109,0,0" VerticalAlignment="Top" Width="149"/>
-                    <TextBox x:Name="txtAdresseClient" HorizontalAlignment="Left" Height="23" Margin="524,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label Content="Adresse" HorizontalAlignment="Left" Margin="524,143,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Button x:Name="btnModifierClient" Content="Modifier" HorizontalAlignment="Left" Margin="432,305,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierClient_Click"/>
+                    <Button x:Name="btnAjouterClient" Content="Ajouter" HorizontalAlignment="Left" Margin="432,281,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterClient_Click" />
+                    <Button x:Name="btnSupprimerClient" Content="Supprimer" HorizontalAlignment="Left" Margin="432,330,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerClient_Click" />
+                    <TextBox x:Name="txtTelClient" HorizontalAlignment="Left" Height="22" Margin="523,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <Label Content="Téléphone" HorizontalAlignment="Left" Margin="523,15,0,0" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtEmailClient" HorizontalAlignment="Left" Height="23" Margin="523,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <Label Content="Email" HorizontalAlignment="Left" Margin="523,81,0,0" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtAdresseClient" HorizontalAlignment="Left" Height="73" Margin="346,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
+                    <Label Content="Adresse" HorizontalAlignment="Left" Margin="346,150,0,0" VerticalAlignment="Top" Width="150"/>
 
                 </Grid>
             </TabItem>
@@ -120,17 +104,17 @@
                     <DataGrid x:Name="dtgProduit" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgProduit_SelectionChanged" />
                     <TextBox x:Name="txtIdProduit" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
                     <Label x:Name="gfdg" Content="N° de produit" HorizontalAlignment="Left" Margin="346,15,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DatePicker x:Name="dateAjoutProduit" HorizontalAlignment="Left" Margin="524,39,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="jhg" Content="Date d'ajout" HorizontalAlignment="Left" Margin="524,13,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtNomProduit" HorizontalAlignment="Left" Height="23" Margin="346,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label Content="Nom" HorizontalAlignment="Left" Margin="346,81,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Button x:Name="btnModifierProduit" Content="Modifier" HorizontalAlignment="Left" Margin="540,296,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierProduit_Click" />
-                    <Button x:Name="btnAjouterProduit" Content="Ajouter" HorizontalAlignment="Left" Margin="540,272,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterProduit_Click" />
-                    <Button x:Name="btnSupprimerProduit" Content="Supprimer" HorizontalAlignment="Left" Margin="540,321,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerProduit_Click"/>
-                    <TextBox x:Name="txtDescProduit" HorizontalAlignment="Left" Height="23" Margin="346,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <Label Content="Description" HorizontalAlignment="Left" Margin="346,143,0,0" VerticalAlignment="Top" Width="150"/>
-                    <TextBox x:Name="txtPrixUnitaire" HorizontalAlignment="Left" Height="22" Margin="346,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="150"/>
-                    <Label Content="Prix Unitaire" HorizontalAlignment="Left" Margin="346,209,0,0" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtNomProduit" HorizontalAlignment="Left" Height="23" Margin="346,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
+                    <Label Content="Nom du produit" HorizontalAlignment="Left" Margin="346,81,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Button x:Name="btnModifierProduit" Content="Modifier" HorizontalAlignment="Left" Margin="432,373,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierProduit_Click" />
+                    <Button x:Name="btnAjouterProduit" Content="Ajouter" HorizontalAlignment="Left" Margin="432,349,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterProduit_Click" />
+                    <Button x:Name="btnSupprimerProduit" Content="Supprimer" HorizontalAlignment="Left" Margin="432,398,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerProduit_Click"/>
+                    <TextBox x:Name="txtStockProduit" HorizontalAlignment="Left" Height="23" Margin="522,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <Label Content="Stock" HorizontalAlignment="Left" Margin="522,146,0,0" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtDescProduit" HorizontalAlignment="Left" Height="64" Margin="346,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="327"/>
+                    <Label Content="Description" HorizontalAlignment="Left" Margin="346,212,0,0" VerticalAlignment="Top" Width="150"/>
+                    <TextBox x:Name="txtPrixUnitaire" HorizontalAlignment="Left" Height="22" Margin="346,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                    <Label Content="Prix Unitaire" HorizontalAlignment="Left" Margin="346,146,0,0" VerticalAlignment="Top" Width="150"/>
                     <TextBox x:Name="txtImageProduit" HorizontalAlignment="Left" Height="22" Margin="323,559,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label Content="Image" HorizontalAlignment="Left" Margin="323,529,0,0" VerticalAlignment="Top" Width="150"/>
                 </Grid>
@@ -149,107 +133,58 @@
           Margin="540,41,0,0" 
           VerticalAlignment="Top" 
           Width="155"/>
-                    <Button x:Name="btnModifierRendezVous" Content="Modifier" HorizontalAlignment="Left" Margin="540,296,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierRendezVous_Click"/>
-                    <Button x:Name="btnAjouterRendezVous" Content="Ajouter" HorizontalAlignment="Left" Margin="540,272,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterRendezVous_Click" />
-                    <Button x:Name="btnSupprimerRendezVous" Content="Supprimer" HorizontalAlignment="Left" Margin="540,321,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerRendezVous_Click"/>
-                    <Label x:Name="dfsfdsf" Content="Description" HorizontalAlignment="Left" Margin="346,121,0,0" VerticalAlignment="Top" Width="115"/>
-                    <Label x:Name="fdsfdsf" Content="Heure de début" HorizontalAlignment="Left" Margin="346,175,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Button x:Name="btnModifierRendezVous" Content="Modifier" HorizontalAlignment="Left" Margin="442,361,0,0" VerticalAlignment="Top" Width="156" Click="btnModifierRendezVous_Click"/>
+                    <Button x:Name="btnAjouterRendezVous" Content="Ajouter" HorizontalAlignment="Left" Margin="442,337,0,0" VerticalAlignment="Top" Width="156" Click="btnAjouterRendezVous_Click" />
+                    <Button x:Name="btnSupprimerRendezVous" Content="Supprimer" HorizontalAlignment="Left" Margin="442,386,0,0" VerticalAlignment="Top" Width="156" Height="20" Click="btnSupprimerRendezVous_Click"/>
+                    <Label x:Name="dfsfdsf" Content="Description" HorizontalAlignment="Left" Margin="345,199,0,0" VerticalAlignment="Top" Width="114"/>
+                    <Label x:Name="fdsfdsf" Content="Heure du rendez vous" HorizontalAlignment="Left" Margin="345,135,0,0" VerticalAlignment="Top" Width="151"/>
                     <Label x:Name="fdsfsdf" Content="Commercial" HorizontalAlignment="Left" Margin="540,15,0,0" VerticalAlignment="Top" Width="115"/>
-                    <Label x:Name="fdsfds" Content="Date du rendez vous" HorizontalAlignment="Left" Margin="346,66,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DatePicker x:Name="dtpRendezVous" HorizontalAlignment="Left" Margin="347,92,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="fdsfsd" Content="Heure de fin" HorizontalAlignment="Left" Margin="346,229,0,0" VerticalAlignment="Top" Width="115"/>
-                    <ComboBox x:Name="cboProspectRendezVous"
-          DisplayMemberPath="NomProspect" 
-          SelectedValuePath="IdProspect" 
-          HorizontalAlignment="Left" 
-          Margin="540,95,0,0" 
-          VerticalAlignment="Top" 
-          Width="155"/>
-
-                    <Label x:Name="fdsfsdf_Copy" Content="Prospect" HorizontalAlignment="Left" Margin="540,70,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="fdsfds" Content="Date du rendez vous" HorizontalAlignment="Left" Margin="346,71,0,0" VerticalAlignment="Top" Width="150"/>
+                    <DatePicker x:Name="dtpRendezVous" HorizontalAlignment="Left" Margin="347,97,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="cboClientRendezVous"
           DisplayMemberPath="NomClient" 
           SelectedValuePath="IdClient" 
           HorizontalAlignment="Left" 
-          Margin="540,150,0,0" 
+          Margin="540,100,0,0" 
           VerticalAlignment="Top" 
           Width="155"/>
-                    <Label x:Name="fdsfsdf_Copy1" Content="Client" HorizontalAlignment="Left" Margin="540,124,0,0" VerticalAlignment="Top" Width="115"/>
-                    <TextBox x:Name="txtDescRendezVous" HorizontalAlignment="Left" Height="23" Margin="346,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                    <ComboBox x:Name="cboDebutRendezVous" HorizontalAlignment="Left" Width="150" Margin="347,201,0,277">
-                        <ComboBox.ItemsSource>
-                            <x:Array Type="{x:Type sys:String}">
-                                <sys:String>8h00</sys:String>
-                                <sys:String>9h00</sys:String>
-                                <sys:String>10h00</sys:String>
-                                <sys:String>11h00</sys:String>
-                                <sys:String>14h00</sys:String>
-                                <sys:String>15h00</sys:String>
-                                <sys:String>16h00</sys:String>
-                                <sys:String>17h00</sys:String>
-                            </x:Array>
-                        </ComboBox.ItemsSource>
-                    </ComboBox>
+                    <Label x:Name="fdsfsdf_Copy1" Content="Client" HorizontalAlignment="Left" Margin="540,74,0,0" VerticalAlignment="Top" Width="115"/>
+                    <TextBox x:Name="txtDescRendezVous" HorizontalAlignment="Left" Height="82" Margin="345,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="349"/>
+                    <TextBox x:Name="txtHeureRendezVous" PreviewTextInput="txtHeureRendezVous_PreviewTextInput" Height="25" Margin="347,161,208,314" TextAlignment="Center"/>
 
-                    <ComboBox x:Name="cboFinRendezVous" HorizontalAlignment="Left" Width="150" Margin="347,255,0,223">
-                        <ComboBox.ItemsSource>
-                            <x:Array Type="{x:Type sys:String}">
-                                <sys:String>9h00</sys:String>
-                                <sys:String>10h00</sys:String>
-                                <sys:String>11h00</sys:String>
-                                <sys:String>12h00</sys:String>
-                                <sys:String>15h00</sys:String>
-                                <sys:String>16h00</sys:String>
-                                <sys:String>17h00</sys:String>
-                                <sys:String>18h00</sys:String>
-                            </x:Array>
-                        </ComboBox.ItemsSource>
-                    </ComboBox>
 
                 </Grid>
             </TabItem>
 
 
-            <TabItem Header="Facture" IsSelected="True">
+            <TabItem Header="Commande" IsSelected="True">
                 <Grid Background="#FFE5E5E5" VerticalAlignment="Top" Height="500">
-                    <DataGrid x:Name="dtgFacture" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgFacture_SelectionChanged"/>
+                    <DataGrid x:Name="dtgCommande" HorizontalAlignment="Left" VerticalAlignment="Top" Height="450" Width="320" AutoGenerateColumns="True" ItemsSource="{Binding}" SelectionChanged="dtgFacture_SelectionChanged"/>
                     <TextBox x:Name="txtIdFacture" HorizontalAlignment="Left" Height="23" Margin="346,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14.667" FontWeight="Bold" IsEnabled="False"/>
-                    <Label x:Name="gfdgf" Content="N° de facture" HorizontalAlignment="Left" Margin="346,15,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DatePicker x:Name="dateFacture" HorizontalAlignment="Left" Margin="524,39,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="gfdgf" Content="N° de commande" HorizontalAlignment="Left" Margin="346,15,0,0" VerticalAlignment="Top" Width="150"/>
+                    <DatePicker x:Name="dateCommande" HorizontalAlignment="Left" Margin="524,39,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="jhfg" Content="Date d'ajout" HorizontalAlignment="Left" Margin="524,13,0,0" VerticalAlignment="Top" Width="150"/>
                     <TextBox x:Name="txtMontantTotal" HorizontalAlignment="Left" Height="23" Margin="346,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                     <Label Content="Montant totale" HorizontalAlignment="Left" Margin="346,81,0,0" VerticalAlignment="Top" Width="150"/>
-                    <Button x:Name="btnModifierFacture" Content="Modifier" HorizontalAlignment="Left" Margin="540,296,0,0" VerticalAlignment="Top" Width="155" Click="btnModifierFacture_Click" />
-                    <Button x:Name="btnAjouterFacture" Content="Ajouter" HorizontalAlignment="Left" Margin="540,272,0,0" VerticalAlignment="Top" Width="155" Click="btnAjouterFacture_Click" />
-                    <Button x:Name="btnSupprimerFacture" Content="Supprimer" HorizontalAlignment="Left" Margin="540,321,0,0" VerticalAlignment="Top" Width="155" Height="20" Click="btnSupprimerFacture_Click"/>
-                    <Label Content="Statut " HorizontalAlignment="Left" Margin="346,143,0,0" VerticalAlignment="Top" Width="150"/>
-                    <DatePicker x:Name="datePaiementFacture" HorizontalAlignment="Left" Margin="525,107,0,0" VerticalAlignment="Top"/>
-                    <Label x:Name="jhfg_Copy" Content="Date de Paiement" HorizontalAlignment="Left" Margin="523,81,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Button x:Name="btnModifierFacture" Content="Modifier" HorizontalAlignment="Left" Margin="432,375,0,0" VerticalAlignment="Top" Width="156" Click="btnModifierFacture_Click" />
+                    <Button x:Name="btnAjouterFacture" Content="Ajouter" HorizontalAlignment="Left" Margin="432,351,0,0" VerticalAlignment="Top" Width="156" Click="btnAjouterFacture_Click" />
+                    <Button x:Name="btnSupprimerFacture" Content="Supprimer" HorizontalAlignment="Left" Margin="432,400,0,0" VerticalAlignment="Top" Width="156" Height="20" Click="btnSupprimerFacture_Click"/>
 
-                    <ComboBox x:Name="cboStatutFacture" HorizontalAlignment="Left" Margin="346,169,0,0" VerticalAlignment="Top" Width="150">
-                        <ComboBoxItem Content="Non payer" Background="#FFEF4242"/>
-                        <ComboBoxItem Content="En cours" Background="#FFD09F29"/>
-                        <ComboBoxItem Content="Validé" Background="#FF22B329"/>
-                    </ComboBox>
-
-                    <Label Content="Produit" HorizontalAlignment="Left" Margin="525,143,0,0" VerticalAlignment="Top" Width="150"/>
-                    <ComboBox x:Name="cboProduitFacture" 
-          HorizontalAlignment="Left" 
-          Margin="525,169,0,0" 
-          VerticalAlignment="Top" 
-          Width="150"
-          SelectedValuePath="IdProduit" 
-          DisplayMemberPath="NomProduit" />
-                    <Label Content="Client" HorizontalAlignment="Left" Margin="525,199,0,0" VerticalAlignment="Top" Width="150"/>
+                    <Label Content="Client" HorizontalAlignment="Left" Margin="524,81,0,0" VerticalAlignment="Top" Width="150"/>
                     <ComboBox x:Name="cboClientFacture" 
           HorizontalAlignment="Left" 
-          Margin="525,225,0,0" 
+          Margin="524,107,0,0" 
           VerticalAlignment="Top" 
           Width="150"
-          SelectedValuePath="IdClient" 
-          DisplayMemberPath="NomClient" />
-                    <Button x:Name="btnExporterFacture" Content="Exporter" HorizontalAlignment="Left" Margin="4,455,0,0" VerticalAlignment="Top" Width="123" Height="20" Click="btnExporterFacture_Click"/>
+          SelectedValuePath="IdClientC" 
+          DisplayMemberPath="NomClientC" />
+                    <Button x:Name="btnExporterFacture" Content="Crée une facture" HorizontalAlignment="Left" Margin="4,455,0,0" VerticalAlignment="Top" Width="123" Height="20" Click="btnExporterFacture_Click"/>
                     <Button x:Name="btnGraphiqueFacture" Content="Graphique" HorizontalAlignment="Left" Margin="132,455,0,0" VerticalAlignment="Top" Width="123" Height="20" Click="btnGraphiqueFacture_Click"/>
+
+                    <!-- DataGrid produits de la commande -->
+                    <DataGrid x:Name="dtgProduitsCommande" HorizontalAlignment="Left" Margin="346,169,0,0" VerticalAlignment="Top"
+          Height="144" Width="328" AutoGenerateColumns="True"/>
+                    <Label Content="Produit commandé" HorizontalAlignment="Left" Margin="346,143,0,0" VerticalAlignment="Top" Width="150"/>
 
 
                 </Grid>

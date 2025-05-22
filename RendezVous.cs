@@ -10,13 +10,11 @@ namespace InfoTools
     {
         #region Propriétés
         private int idRendezVous;
-        private string dateRendezVous;
-        private string descriptionRendezVous;
-        private TimeSpan heureDebutRendezVous;
-        private TimeSpan heureFinRendezVous;
-        private Commerciaux leCommercial;
-        private Prospect leProspect;
         private Client leClient;
+        private Commerciaux leCommercial;
+        private string dateRendezVous;
+        private TimeSpan heureRendezVous;
+        private string descriptionRendezVous;
         #endregion
 
         #region Méthodes
@@ -25,29 +23,10 @@ namespace InfoTools
             get { return idRendezVous; }
             set { idRendezVous = value; }
         }
-
-        public string DateRendezVous
+        public Client LeClient
         {
-            get { return dateRendezVous; }
-            set { dateRendezVous = value; }
-        }
-
-        public string DescriptionRendezVous
-        {
-            get { return descriptionRendezVous; }
-            set { descriptionRendezVous = value; }
-        }
-
-        public TimeSpan HeureDebutRendezVous
-        {
-            get { return heureDebutRendezVous; }
-            set { heureDebutRendezVous = value; }
-        }
-
-        public TimeSpan HeureFinRendezVous
-        {
-            get { return heureFinRendezVous; }
-            set { heureFinRendezVous = value; }
+            get { return leClient; }
+            set { leClient = value; }
         }
 
         public Commerciaux LeCommercial
@@ -56,31 +35,35 @@ namespace InfoTools
             set { leCommercial = value; }
         }
 
-        public Prospect LeProspect
+
+        public string DateRendezVous
         {
-            get { return leProspect; }
-            set { leProspect = value; }
+            get { return dateRendezVous; }
+            set { dateRendezVous = value; }
         }
 
-        public Client LeClient
+        public TimeSpan HeureRendezVous
         {
-            get { return leClient; }
-            set { leClient = value; }
+            get { return heureRendezVous; }
+            set { heureRendezVous = value; }
         }
 
+        public string DescriptionRendezVous
+        {
+            get { return descriptionRendezVous; }
+            set { descriptionRendezVous = value; }
+        }
         #endregion
 
         #region Constructeur
-        public RendezVous(int idRendezVous, string dateRendezVous, string descriptionRendezVous, TimeSpan heureDebutRendezVous, TimeSpan heureFinRendezVous, Commerciaux leCommercial, Prospect leProspect, Client leClient)
+        public RendezVous(int idRendezVous, Client leClient, Commerciaux leCommercial, string dateRendezVous, TimeSpan heureRendezVous, string descriptionRendezVous)
         {
             this.idRendezVous = idRendezVous;
-            this.dateRendezVous = dateRendezVous;
-            this.descriptionRendezVous = descriptionRendezVous;
-            this.heureDebutRendezVous = heureDebutRendezVous;
-            this.heureFinRendezVous = heureFinRendezVous;
             this.leCommercial = leCommercial;
-            this.leProspect = leProspect;
             this.leClient = leClient;
+            this.dateRendezVous = dateRendezVous;
+            this.heureRendezVous = heureRendezVous;
+            this.descriptionRendezVous = descriptionRendezVous;
         }
         #endregion
 

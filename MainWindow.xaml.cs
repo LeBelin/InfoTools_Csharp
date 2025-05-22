@@ -18,6 +18,7 @@ using MySql.Data.MySqlClient;
 
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
+using System.Text.RegularExpressions;
 
 namespace InfoTools
 {
@@ -32,19 +33,19 @@ namespace InfoTools
         List<Client> lesClients = new List<Client>();
         List<Produit> lesProduit = new List<Produit>();
         List<RendezVous> lesRendezVous = new List<RendezVous>();
-        List<Facture> lesFactures = new List<Facture>();
+        List<Commande> lesCommandes = new List<Commande>();
 
         public MainWindow()
         {
             bdd.Initialize();
             InitializeComponent();
 
-            lesCommerciaux = bdd.SelectCommerciaux();
+            lesCommerciaux = bdd.SelectCommercials();
             lesProspect = bdd.SelectProspect();
             lesClients = bdd.SelectClient();
             lesProduit = bdd.SelectProduit();
             lesRendezVous = bdd.SelectRendezVous();
-            lesFactures = bdd.SelectFacture();
+            lesCommandes = bdd.SelectCommande();
 
             //Lie le Datagrid dtgMagazine avec la collection cMagazine
             dtgCommerciaux.ItemsSource = lesCommerciaux;
@@ -52,21 +53,16 @@ namespace InfoTools
             dtgClient.ItemsSource = lesClients;
             dtgProduit.ItemsSource = lesProduit;
             dtgRendezVous.ItemsSource = lesRendezVous;
-            dtgFacture.ItemsSource = lesFactures;
+            dtgCommande.ItemsSource = lesCommandes;
 
             dtgCommerciaux.SelectedIndex = 0;
             dtgProspect.SelectedIndex = 0;
             dtgClient.SelectedIndex = 0;
             dtgProduit.SelectedIndex = 0;
             dtgRendezVous.SelectedIndex = 0;
-            dtgFacture.SelectedIndex = 0;
+            dtgCommande.SelectedIndex = 0;
 
-            cboProspectCommercial.ItemsSource = lesCommerciaux;
-            cboCommercialClient.ItemsSource = lesCommerciaux;
             //
-            cboProduitFacture.ItemsSource = lesProduit;
-            cboProduitFacture.DisplayMemberPath = "NomProduit"; // Affiche le nom du produit
-            cboProduitFacture.SelectedValuePath = "IdProduit";
 
             cboClientFacture.ItemsSource = lesClients;
             cboClientFacture.DisplayMemberPath = "NomClient"; // Affiche le nom du client
@@ -77,123 +73,14 @@ namespace InfoTools
             cboCommerciauxRendezVous.DisplayMemberPath = "NomCommerciaux";
             cboCommerciauxRendezVous.SelectedValuePath = "IdCommerciaux";
 
-            cboProspectRendezVous.ItemsSource = lesProspect;
             //cboCommerciauxRendezVous.DisplayMemberPath = "NomProspect";
-            cboProspectRendezVous.SelectedValuePath = "IdProspect";
+
 
             cboClientRendezVous.ItemsSource = lesClients;
             //cboCommerciauxRendezVous.DisplayMemberPath = "NomClient";
             cboClientRendezVous.SelectedValuePath = "IdClient";
 
         }
-
-
-        // ------------- Commerciaux --------------
-        #region Commerciaux
-
-        // Affichage d'un commercial
-        #region DataGrid Commerciaux
-        private void dtgCommerciaux_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (dtgCommerciaux.SelectedItem != null)
-            {
-                Commerciaux selectedCommerciaux = dtgCommerciaux.SelectedItem as Commerciaux;
-
-                if (selectedCommerciaux != null)
-                {
-                    txtNumCommercial.Text = Convert.ToString(selectedCommerciaux.IdCommerciaux);
-                    txtNomCommercial.Text = selectedCommerciaux.NomCommerciaux;
-                    txtPrenomCommercial.Text = selectedCommerciaux.PrenomCommerciaux;
-                    txtAdresseCommercial.Text = selectedCommerciaux.AdresseCommerciaux;
-                    txtCPCommercial.Text = selectedCommerciaux.CpCommerciaux;
-                    txtVilleCommercial.Text = selectedCommerciaux.VilleCommerciaux;
-                    txtTelCommercial.Text = selectedCommerciaux.TelCommerciaux;
-                    txtMailCommercial.Text = selectedCommerciaux.MailCommerciaux;
-                }
-            }
-        }
-        #endregion
-
-        // Ajouter un commercial
-        #region BTN Ajouter Commerciaux
-        private void btnAjouterCommerciaux_Click(object sender, RoutedEventArgs e)
-        {
-            Commerciaux tmpCommerciaux = new Commerciaux(0, txtNomCommercial.Text, txtPrenomCommercial.Text, txtAdresseCommercial.Text, txtVilleCommercial.Text, txtCPCommercial.Text, txtMailCommercial.Text, txtTelCommercial.Text);
-            bdd.InsertCommerciaux(tmpCommerciaux.NomCommerciaux, tmpCommerciaux.PrenomCommerciaux, tmpCommerciaux.AdresseCommerciaux, tmpCommerciaux.VilleCommerciaux, tmpCommerciaux.CpCommerciaux, tmpCommerciaux.MailCommerciaux, tmpCommerciaux.TelCommerciaux);
-            
-            lesCommerciaux = bdd.SelectCommerciaux();
-
-            dtgCommerciaux.ItemsSource = lesCommerciaux;
-            dtgCommerciaux.SelectedIndex = 0;
-            dtgCommerciaux.Items.Refresh();
-                        
-            dtgProspect.Items.Refresh();
-            cboProspectCommercial.Items.Refresh();
-            dtgClient.Items.Refresh();
-            cboCommercialClient.Items.Refresh();
-            dtgRendezVous.Items.Refresh();
-            cboCommerciauxRendezVous.Items.Refresh();
-        }
-        #endregion
-
-        // Modifier un commercial
-        #region BTN Modifier commerciaux
-        private void btnModifierCommerciaux_Click(object sender, RoutedEventArgs e)
-        {
-            int indice = lesCommerciaux.IndexOf((Commerciaux)dtgCommerciaux.SelectedItem);
-
-            if (dtgCommerciaux.SelectedIndex >= 0)
-            {
-                bdd.UpdateCommerciaux(Convert.ToInt32(txtNumCommercial.Text), txtNomCommercial.Text, txtPrenomCommercial.Text, txtAdresseCommercial.Text, txtVilleCommercial.Text, txtCPCommercial.Text, txtMailCommercial.Text, txtTelCommercial.Text);
-
-                // On change les propritétés de l'objet à l'indice trouvé. On ne change pas le numéro de magazine via l'interface, trop de risques d'erreurs en base de données
-                lesCommerciaux.ElementAt(indice).NomCommerciaux = txtNomCommercial.Text;
-                lesCommerciaux.ElementAt(indice).PrenomCommerciaux = txtPrenomCommercial.Text;
-                lesCommerciaux.ElementAt(indice).AdresseCommerciaux = txtAdresseCommercial.Text;
-                lesCommerciaux.ElementAt(indice).VilleCommerciaux = txtVilleCommercial.Text;
-                lesCommerciaux.ElementAt(indice).CpCommerciaux = txtCPCommercial.Text;
-                lesCommerciaux.ElementAt(indice).TelCommerciaux = txtTelCommercial.Text;
-                lesCommerciaux.ElementAt(indice).MailCommerciaux = txtMailCommercial.Text;
-            }
-
-            dtgCommerciaux.Items.Refresh();
-            dtgProspect.Items.Refresh();
-            cboProspectCommercial.Items.Refresh();
-            dtgClient.Items.Refresh();
-            cboCommercialClient.Items.Refresh();
-            dtgRendezVous.Items.Refresh();
-            cboCommerciauxRendezVous.Items.Refresh();
-
-        }
-        #endregion
-
-        // Suprimmer un commercial
-        #region BTN Suprimmer Commerciaux
-        private void btnSupprimerCommerciaux_Click(object sender, RoutedEventArgs e)
-        {
-            if (dtgCommerciaux.SelectedItem != null)
-            {
-                Commerciaux selectedCommerciaux = dtgCommerciaux.SelectedItem as Commerciaux;
-
-                if (selectedCommerciaux != null)
-                {
-                    bdd.DeleteCommerciaux(selectedCommerciaux.IdCommerciaux);
-                    lesCommerciaux.Remove(selectedCommerciaux);
-
-                    dtgCommerciaux.Items.Refresh();
-                    dtgProspect.Items.Refresh();
-                    cboProspectCommercial.Items.Refresh();
-                    dtgClient.Items.Refresh();
-                    cboCommercialClient.Items.Refresh();
-                    dtgRendezVous.Items.Refresh();
-                    cboCommerciauxRendezVous.Items.Refresh();
-                }
-                dtgCommerciaux.SelectedIndex = 0;
-            }
-        }
-        #endregion
-
-        #endregion
 
 
         // ------------- Prospect -----------------
@@ -212,34 +99,16 @@ namespace InfoTools
                     //Remplissage des Textboxs avec les données de l'objet Contrat selectedContrat récupéré dans le Datagrid dtgContrat
                     txtNumProspect.Text = Convert.ToString(selectedProspect.IdProspect);
                     txtNomProspect.Text = selectedProspect.NomProspect;
-                    txtPrenomProspect.Text = Convert.ToString(selectedProspect.PrenomProspect);
                     txtTelProspect.Text = Convert.ToString(selectedProspect.TelephoneProspect);
+                    txtAdresseProspect.Text = selectedProspect.AdresseProspect;
                     txtMailProspect.Text = Convert.ToString(selectedProspect.EmailProspect);
-                    dtpCeationProspect.Text = Convert.ToString(selectedProspect.DateCreation);
                     //cboProspectCommercial.SelectedIndex = selectedProspect.LeCommercial;
-                    cboProspectCommercial.SelectedValue = selectedProspect.LeCommercial.IdCommerciaux;
 
                     // Sélection du pigiste concerné dans la Combobox
                     //cboPigiste.SelectedItem = selectedContrat.PigisteContrat;
-
-                    int i = 0;
-                    bool trouve = false;
-
-                    while (i < cboProspectCommercial.Items.Count && trouve == false)
-                    {
-                        if (Convert.ToString(cboProspectCommercial.Items[i]) == Convert.ToString(selectedProspect.LeCommercial))
-                        {
-                            trouve = true;
-                            cboProspectCommercial.SelectedIndex = i;
-                        }
-                        i++;
-                    }
-
-
                 }
                 catch (Exception)
                 {
-
                     Console.WriteLine("Erreur sur la mise à jour du formulaire lors du changement dans le Datagrid dtgContrat");
                 }
             }
@@ -250,24 +119,18 @@ namespace InfoTools
         #region BTN Ajouter Prospect
         private void btnAjouterProspect_Click(object sender, RoutedEventArgs e)
         {
+            Prospect tmpProspect = new Prospect(0, txtNomProspect.Text, txtMailProspect.Text, txtTelProspect.Text, txtMailProspect.Text);
+            bdd.InsertProspect(tmpProspect.NomProspect, tmpProspect.EmailProspect, tmpProspect.TelephoneProspect, tmpProspect.EmailProspect);
 
-                // Récupération du Pigiste sélectionné dans le Combobox cboPigiste
-                Commerciaux ModifCommercial = cboProspectCommercial.SelectedItem as Commerciaux;
+            // Mets a jours pigistes
+            lesProspect = bdd.SelectProspect();
 
+            // Met à jour le DataGrid
+            dtgProspect.ItemsSource = lesProspect;
+            dtgProspect.SelectedIndex = 0;
+            dtgProspect.Items.Refresh();
+            dtgRendezVous.Items.Refresh();
 
-                Prospect tmpProspect = new Prospect(0, txtNomProspect.Text, txtPrenomProspect.Text, txtTelProspect.Text, txtMailProspect.Text, dtpCeationProspect.Text, (Commerciaux)cboProspectCommercial.SelectedItem);
-                bdd.InsertProspect(tmpProspect.NomProspect, tmpProspect.PrenomProspect, tmpProspect.TelephoneProspect, tmpProspect.EmailProspect, tmpProspect.DateCreation, tmpProspect.LeCommercial);
-
-                // Mets a jours pigistes
-                lesProspect = bdd.SelectProspect();
-
-                // Met à jour le DataGrid
-                dtgProspect.ItemsSource = lesProspect;
-                dtgProspect.SelectedIndex = 0;
-                dtgProspect.Items.Refresh();
-                dtgRendezVous.Items.Refresh();
-                cboProspectRendezVous.Items.Refresh();
-            
             // lesContrats.Add(tmpContrat);
         }
         #endregion
@@ -281,26 +144,21 @@ namespace InfoTools
 
             // On change les propritétés de l'objet à l'indice trouvé. On ne change pas le numéro de magazine via l'interface, trop de risques d'erreurs en base de données
             lesProspect.ElementAt(indice).NomProspect = txtNomProspect.Text;
-            lesProspect.ElementAt(indice).PrenomProspect = txtPrenomProspect.Text;
-            lesProspect.ElementAt(indice).TelephoneProspect = txtTelProspect.Text;
             lesProspect.ElementAt(indice).EmailProspect = txtMailProspect.Text;
-            lesProspect.ElementAt(indice).DateCreation = dtpCeationProspect.Text;
-            lesProspect.ElementAt(indice).LeCommercial = (Commerciaux)cboProspectCommercial.SelectedItem;
+            lesProspect.ElementAt(indice).TelephoneProspect = txtTelProspect.Text;
+            lesProspect.ElementAt(indice).AdresseProspect = txtAdresseProspect.Text;
 
             Prospect prospectModifie = lesProspect.ElementAt(indice);
             bdd.UpdateProspect(
                 prospectModifie.IdProspect,
                 prospectModifie.NomProspect,
-                prospectModifie.PrenomProspect,
-                prospectModifie.TelephoneProspect,
                 prospectModifie.EmailProspect,
-                prospectModifie.DateCreation,
-                prospectModifie.LeCommercial.IdCommerciaux // Ici on passe l'ID du commercial
+                prospectModifie.TelephoneProspect,
+                prospectModifie.AdresseProspect
             );
 
             dtgProspect.Items.Refresh();
             dtgRendezVous.Items.Refresh();
-            cboProspectRendezVous.Items.Refresh();
         }
         #endregion
 
@@ -320,7 +178,6 @@ namespace InfoTools
 
                 dtgProspect.Items.Refresh();
                 dtgRendezVous.Items.Refresh();
-                cboProspectRendezVous.Items.Refresh();
             }
         }
         #endregion
@@ -343,32 +200,11 @@ namespace InfoTools
                 {
                     txtIdClient.Text = Convert.ToString(selectedClient.IdClient);
                     txtNomClient.Text = selectedClient.NomClient;
-                    txtPrenomClient.Text = Convert.ToString(selectedClient.PrenomClient);
                     txtEmailClient.Text = Convert.ToString(selectedClient.EmailClient);
                     txtTelClient.Text = Convert.ToString(selectedClient.TelephoneClient);
                     txtAdresseClient.Text = Convert.ToString(selectedClient.AdresseClient);
-                    dtpCreationClient.Text = Convert.ToString(selectedClient.DateCreationClient);
-
-                    // Vérifiez si LeCommercial existe avant d'affecter la valeur
-                    if (selectedClient.LeCommercial != null)
-                    {
-                        cboCommercialClient.SelectedValue = selectedClient.LeCommercial.IdCommerciaux;
-                    }
-
-                    // Sélectionner le commercial concerné dans la ComboBox
-                    int i = 0;
-                    bool trouve = false;
-
-                    while (i < cboCommercialClient.Items.Count && !trouve)
-                    {
-                        if (Convert.ToString(cboCommercialClient.Items[i]) == Convert.ToString(selectedClient.LeCommercial))
-                        {
-                            trouve = true;
-                            cboCommercialClient.SelectedIndex = i;
-                        }
-                        i++;
-                    }
                 }
+
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erreur sur la mise à jour du formulaire : " + ex.Message);
@@ -382,17 +218,15 @@ namespace InfoTools
         #region BTN Ajouter un client
         private void btnAjouterClient_Click(object sender, RoutedEventArgs e)
         {
-            Commerciaux ModifCommercial = cboProspectCommercial.SelectedItem as Commerciaux;
-
-            Client tmpCLient = new Client(0, txtNomClient.Text, txtPrenomClient.Text, txtEmailClient.Text, txtTelClient.Text, txtAdresseClient.Text, dtpCreationClient.Text, (Commerciaux)cboCommercialClient.SelectedItem);
-            bdd.InsertClient(tmpCLient.NomClient, tmpCLient.PrenomClient, tmpCLient.EmailClient, tmpCLient.TelephoneClient, tmpCLient.AdresseClient, tmpCLient.DateCreationClient, tmpCLient.LeCommercial);
+            Client tmpCLient = new Client(0, txtNomClient.Text, txtEmailClient.Text, txtTelClient.Text, txtAdresseClient.Text);
+            bdd.InsertClient(tmpCLient.NomClient, tmpCLient.EmailClient, tmpCLient.TelephoneClient, tmpCLient.AdresseClient);
 
             lesClients = bdd.SelectClient();
 
             dtgClient.ItemsSource = lesClients;
             dtgClient.SelectedIndex = 0;
             dtgClient.Items.Refresh();
-            dtgFacture.Items.Refresh();
+            dtgCommande.Items.Refresh();
             cboClientFacture.Items.Refresh();
             dtgRendezVous.Items.Refresh();
         }
@@ -407,27 +241,21 @@ namespace InfoTools
 
             // On change les propritétés de l'objet à l'indice trouvé. On ne change pas le numéro de magazine via l'interface, trop de risques d'erreurs en base de données
             lesClients.ElementAt(indice).NomClient = txtNomClient.Text;
-            lesClients.ElementAt(indice).PrenomClient = txtPrenomClient.Text;
             lesClients.ElementAt(indice).EmailClient = txtEmailClient.Text;
             lesClients.ElementAt(indice).TelephoneClient = txtTelClient.Text;
             lesClients.ElementAt(indice).AdresseClient = txtAdresseClient.Text;
-            lesClients.ElementAt(indice).DateCreationClient = dtpCreationClient.Text;
-            lesClients.ElementAt(indice).LeCommercial = (Commerciaux)cboCommercialClient.SelectedItem;
 
             Client clientModifie = lesClients.ElementAt(indice);
             bdd.UpdateClient(
                 clientModifie.IdClient,
                 clientModifie.NomClient,
-                clientModifie.PrenomClient,
                 clientModifie.EmailClient,
                 clientModifie.TelephoneClient,
-                clientModifie.AdresseClient,
-                clientModifie.DateCreationClient,
-                clientModifie.LeCommercial.IdCommerciaux // Ici on passe l'ID du commercial
+                clientModifie.AdresseClient
             );
 
             dtgClient.Items.Refresh();
-            dtgFacture.Items.Refresh();
+            dtgCommande.Items.Refresh();
             cboClientFacture.Items.Refresh();
             dtgRendezVous.Items.Refresh();
         }
@@ -447,9 +275,105 @@ namespace InfoTools
                 dtgClient.ItemsSource = lesClients;
                 dtgClient.SelectedIndex = 0;
                 dtgClient.Items.Refresh();
-                dtgFacture.Items.Refresh();
+                dtgCommande.Items.Refresh();
                 cboClientFacture.Items.Refresh();
                 dtgRendezVous.Items.Refresh();
+            }
+        }
+        #endregion
+
+        #endregion
+
+
+        // ------------- Commerciaux --------------
+        #region Commerciaux
+
+        // Affichage d'un commercial
+        #region DataGrid Commerciaux
+        private void dtgCommerciaux_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtgCommerciaux.SelectedItem != null)
+            {
+                Commerciaux selectedCommerciaux = dtgCommerciaux.SelectedItem as Commerciaux;
+
+                if (selectedCommerciaux != null)
+                {
+                    txtNumCommercial.Text = Convert.ToString(selectedCommerciaux.IdCommerciaux);
+                    txtNomCommercial.Text = selectedCommerciaux.NomCommerciaux;
+                    txtMailCommercial.Text = selectedCommerciaux.MailCommerciaux;
+                    txtAdresseCommercial.Text = selectedCommerciaux.AdresseCommerciaux;
+                    txtTelCommercial.Text = selectedCommerciaux.TelCommerciaux;
+                }
+            }
+        }
+        #endregion
+
+        // Ajouter un commercial
+        #region BTN Ajouter Commerciaux
+        private void btnAjouterCommerciaux_Click(object sender, RoutedEventArgs e)
+        {
+            Commerciaux tmpCommerciaux = new Commerciaux(0, txtNomCommercial.Text, txtMailCommercial.Text, txtTelCommercial.Text, txtAdresseCommercial.Text);
+            bdd.InsertCommerciaux(tmpCommerciaux.NomCommerciaux, tmpCommerciaux.MailCommerciaux, tmpCommerciaux.TelCommerciaux, tmpCommerciaux.AdresseCommerciaux);
+            
+            lesCommerciaux = bdd.SelectCommercials();
+
+            dtgCommerciaux.ItemsSource = lesCommerciaux;
+            dtgCommerciaux.SelectedIndex = 0;
+            dtgCommerciaux.Items.Refresh();
+                        
+            dtgProspect.Items.Refresh();
+            dtgClient.Items.Refresh();
+            dtgRendezVous.Items.Refresh();
+            cboCommerciauxRendezVous.Items.Refresh();
+        }
+        #endregion
+
+        // Modifier un commercial
+        #region BTN Modifier commerciaux
+        private void btnModifierCommerciaux_Click(object sender, RoutedEventArgs e)
+        {
+            int indice = lesCommerciaux.IndexOf((Commerciaux)dtgCommerciaux.SelectedItem);
+
+            if (dtgCommerciaux.SelectedIndex >= 0)
+            {
+                bdd.UpdateCommerciaux(Convert.ToInt32(txtNumCommercial.Text), txtNomCommercial.Text, txtMailCommercial.Text, txtTelCommercial.Text, txtAdresseClient.Text);
+
+                // On change les propritétés de l'objet à l'indice trouvé. On ne change pas le numéro de magazine via l'interface, trop de risques d'erreurs en base de données
+                lesCommerciaux.ElementAt(indice).NomCommerciaux = txtNomCommercial.Text;
+                lesCommerciaux.ElementAt(indice).MailCommerciaux = txtMailCommercial.Text;
+                lesCommerciaux.ElementAt(indice).TelCommerciaux = txtTelCommercial.Text;
+                lesCommerciaux.ElementAt(indice).AdresseCommerciaux = txtAdresseCommercial.Text;
+            }
+
+            dtgCommerciaux.Items.Refresh();
+            dtgProspect.Items.Refresh();
+            dtgClient.Items.Refresh();
+            dtgRendezVous.Items.Refresh();
+            cboCommerciauxRendezVous.Items.Refresh();
+
+        }
+        #endregion
+
+        // Suprimmer un commercial
+        #region BTN Suprimmer Commerciaux
+        private void btnSupprimerCommerciaux_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtgCommerciaux.SelectedItem != null)
+            {
+                Commerciaux selectedCommerciaux = dtgCommerciaux.SelectedItem as Commerciaux;
+
+                if (selectedCommerciaux != null)
+                {
+                    bdd.DeleteCommerciaux(selectedCommerciaux.IdCommerciaux);
+                    lesCommerciaux.Remove(selectedCommerciaux);
+
+                    dtgCommerciaux.Items.Refresh();
+                    dtgProspect.Items.Refresh();
+                    dtgClient.Items.Refresh();
+                    dtgRendezVous.Items.Refresh();
+                    cboCommerciauxRendezVous.Items.Refresh();
+                }
+                dtgCommerciaux.SelectedIndex = 0;
             }
         }
         #endregion
@@ -474,8 +398,7 @@ namespace InfoTools
                     txtNomProduit.Text = selectedProduit.NomProduit;
                     txtDescProduit.Text = selectedProduit.DesciptionProduit;
                     txtPrixUnitaire.Text = Convert.ToString(selectedProduit.PrixUnitaire);
-                    dateAjoutProduit.Text = selectedProduit.DateAjoutProduit;
-                    txtImageProduit.Text = selectedProduit.ImgProduit;
+                    txtStockProduit.Text = Convert.ToString(selectedProduit.StockProduit);
                 }
             }
         }
@@ -485,18 +408,17 @@ namespace InfoTools
         #region BTN Ajouter Produit
         private void btnAjouterProduit_Click(object sender, RoutedEventArgs e)
         {
-            if (dtgClient.SelectedIndex >= 0)
+            if (dtgProduit.SelectedIndex >= 0)
             {
-                Produit tmpProduit = new Produit(0, txtNomProduit.Text, txtDescProduit.Text, Convert.ToInt16(txtPrixUnitaire.Text), dateAjoutProduit.Text, txtImageProduit.Text);
-                bdd.InsertProduit(tmpProduit.NomProduit, tmpProduit.DesciptionProduit, tmpProduit.PrixUnitaire, tmpProduit.DateAjoutProduit, tmpProduit.ImgProduit);
+                Produit tmpProduit = new Produit(0, txtNomProduit.Text, txtDescProduit.Text, Convert.ToInt16(txtPrixUnitaire.Text), Convert.ToInt16(txtStockProduit.Text));
+                bdd.InsertProduit(tmpProduit.NomProduit, tmpProduit.DesciptionProduit, tmpProduit.PrixUnitaire, tmpProduit.StockProduit);
 
                 lesProduit = bdd.SelectProduit();
 
                 dtgProduit.ItemsSource = lesProduit;
                 dtgProduit.SelectedIndex = 0;
                 dtgProduit.Items.Refresh();
-                dtgFacture.Items.Refresh();
-                cboProduitFacture.Items.Refresh();
+                dtgCommande.Items.Refresh();
             }
         }
         #endregion
@@ -509,18 +431,23 @@ namespace InfoTools
 
             if (dtgProduit.SelectedIndex >= 0)
             {
-                bdd.UpdateProduit(Convert.ToInt32(txtIdProduit.Text), txtNomProduit.Text, txtDescProduit.Text, Convert.ToInt16(txtPrixUnitaire.Text),dateAjoutProduit.Text, txtImageProduit.Text);
+                bdd.UpdateProduit(
+                    Convert.ToInt32(txtIdProduit.Text),
+                    txtNomProduit.Text,
+                    txtDescProduit.Text,
+                    Convert.ToInt16(txtPrixUnitaire.Text),
+                    Convert.ToInt16(txtStockProduit.Text)
+                );
+
 
                 lesProduit.ElementAt(indice).NomProduit = txtNomProduit.Text;
                 lesProduit.ElementAt(indice).DesciptionProduit = txtDescProduit.Text;
                 lesProduit.ElementAt(indice).PrixUnitaire = Convert.ToInt16(txtPrixUnitaire.Text);
-                lesProduit.ElementAt(indice).DateAjoutProduit = dateAjoutProduit.Text;
-                lesProduit.ElementAt(indice).ImgProduit = txtImageProduit.Text;
+                lesProduit.ElementAt(indice).StockProduit = Convert.ToInt16(txtStockProduit.Text);
             }
 
             dtgProduit.Items.Refresh();
-            dtgFacture.Items.Refresh();
-            cboProduitFacture.Items.Refresh();
+            dtgCommande.Items.Refresh();
         }
         #endregion
 
@@ -538,8 +465,7 @@ namespace InfoTools
                     lesProduit.Remove(selectedProduit);
 
                     dtgProduit.Items.Refresh();
-                    dtgFacture.Items.Refresh();
-                    cboProduitFacture.Items.Refresh();
+                    dtgCommande.Items.Refresh();
                 }
                 dtgProduit.SelectedIndex = 0;
             }
@@ -577,10 +503,12 @@ namespace InfoTools
                 try
                 {
                     txIdRendezVous.Text = Convert.ToString(selectedRendezVous.IdRendezVous);
-                    dtpRendezVous.Text = selectedRendezVous.DateRendezVous;
-                    txtDescRendezVous.Text = Convert.ToString(selectedRendezVous.DescriptionRendezVous);
-                    cboDebutRendezVous.SelectedItem = FormatTimeSpanAs1h00(selectedRendezVous.HeureDebutRendezVous);
-                    cboFinRendezVous.SelectedItem = FormatTimeSpanAs1h00(selectedRendezVous.HeureFinRendezVous);
+
+                    // Mettre à jour la sélection du client dans le ComboBox
+                    if (selectedRendezVous.LeClient != null)
+                    {
+                        cboClientRendezVous.SelectedValue = selectedRendezVous.LeClient.IdClient;
+                    }
 
                     // Mettre à jour la sélection du rendezvous dans le ComboBox
                     if (selectedRendezVous.LeCommercial != null)
@@ -588,17 +516,10 @@ namespace InfoTools
                         cboCommerciauxRendezVous.SelectedValue = selectedRendezVous.LeCommercial.IdCommerciaux;
                     }
 
-                    // Mettre à jour la sélection du prospect dans le ComboBox
-                    if (selectedRendezVous.LeProspect != null)
-                    {
-                        cboProspectRendezVous.SelectedValue = selectedRendezVous.LeProspect.IdProspect;
-                    }
-
-                    // Mettre à jour la sélection du client dans le ComboBox
-                    if (selectedRendezVous.LeClient != null)
-                    {
-                        cboClientRendezVous.SelectedValue = selectedRendezVous.LeClient.IdClient;
-                    }
+                    dtpRendezVous.Text = selectedRendezVous.DateRendezVous;
+                    txtDescRendezVous.Text = Convert.ToString(selectedRendezVous.DescriptionRendezVous);
+                    txtHeureRendezVous.Text = selectedRendezVous.HeureRendezVous.ToString(@"hh\:mm");
+                    //cboRendezVous.Text = FormatTimeSpanAs1h00(selectedRendezVous.HeureRendezVous);
 
 
                     int i = 0;
@@ -614,15 +535,6 @@ namespace InfoTools
                         i++;
                     }
 
-                    while (i < cboProspectRendezVous.Items.Count && trouve == false)
-                    {
-                        if (Convert.ToString(cboProspectRendezVous.Items[i]) == Convert.ToString(selectedRendezVous.LeProspect))
-                        {
-                            trouve = true;
-                            cboProspectRendezVous.SelectedIndex = i;
-                        }
-                        i++;
-                    }
 
                     while (i < cboClientRendezVous.Items.Count && trouve == false)
                     {
@@ -649,75 +561,97 @@ namespace InfoTools
         #region BTN Ajouter RendezVous
         private void btnAjouterRendezVous_Click(object sender, RoutedEventArgs e)
         {
-            // Récupération du Pigiste sélectionné dans le Combobox cboPigiste
             Commerciaux ModifCommerciauxRendezVous = cboCommerciauxRendezVous.SelectedItem as Commerciaux;
-            Prospect ModifProspectRendezVous = cboProspectRendezVous.SelectedItem as Prospect;
             Client ModifClientRendezVous = cboClientRendezVous.SelectedItem as Client;
 
+            // Vérification de l'heure saisie
+            TimeSpan heureRdv;
+            if (!TimeSpan.TryParse(txtHeureRendezVous.Text, out heureRdv))
+            {
+                MessageBox.Show("Format d'heure invalide. Exemple : 14:30", "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             RendezVous tmpRendezVous = new RendezVous(
                 0,
+                ModifClientRendezVous,
+                ModifCommerciauxRendezVous,
                 dtpRendezVous.Text,
-                txtDescRendezVous.Text,
-                ConvertToTimeSpan((string)cboDebutRendezVous.SelectedItem),
-                ConvertToTimeSpan((string)cboFinRendezVous.SelectedItem),
-                (Commerciaux)cboCommerciauxRendezVous.SelectedItem,
-                (Prospect)cboProspectRendezVous.SelectedItem,
-                (Client)cboClientRendezVous.SelectedItem
+                heureRdv,
+                txtDescRendezVous.Text
             );
 
-
+            // Insertion en base
             bdd.InsertRendezVous(
-                tmpRendezVous.DateRendezVous,
-                tmpRendezVous.DescriptionRendezVous,
-                tmpRendezVous.HeureDebutRendezVous.ToString(@"hh\:mm"),
-                tmpRendezVous.HeureFinRendezVous.ToString(@"hh\:mm"),
+                tmpRendezVous.LeClient,
                 tmpRendezVous.LeCommercial,
-                tmpRendezVous.LeProspect,
-                tmpRendezVous.LeClient
+                tmpRendezVous.DateRendezVous,
+                tmpRendezVous.HeureRendezVous.ToString(@"hh\:mm"),
+                tmpRendezVous.DescriptionRendezVous
             );
 
-
-            // Mets a jours pigistes
+            // Rafraîchissement
             lesRendezVous = bdd.SelectRendezVous();
-
-            // Met à jour le DataGrid
             dtgRendezVous.ItemsSource = lesRendezVous;
             dtgRendezVous.SelectedIndex = 0;
             dtgRendezVous.Items.Refresh();
         }
+        private void txtHeureRendezVous_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Autoriser chiffres et ':'
+            e.Handled = !Regex.IsMatch(e.Text, @"[\d:]");
+        }
+
         #endregion
 
-        // Modifier un Rendez Vous
         #region BTN Modifier RendezVous
         private void btnModifierRendezVous_Click(object sender, RoutedEventArgs e)
         {
             int indice = lesRendezVous.IndexOf((RendezVous)dtgRendezVous.SelectedItem);
 
-            lesRendezVous.ElementAt(indice).DateRendezVous = dtpRendezVous.Text;
-            lesRendezVous.ElementAt(indice).DescriptionRendezVous = Convert.ToString(txtDescRendezVous.Text);
-            lesRendezVous.ElementAt(indice).HeureDebutRendezVous = TimeSpan.FromHours(cboDebutRendezVous.SelectedIndex);
-            lesRendezVous.ElementAt(indice).HeureFinRendezVous = TimeSpan.FromHours(cboFinRendezVous.SelectedIndex);
+            if (indice < 0)
+                return;
 
-            lesRendezVous.ElementAt(indice).LeCommercial = (Commerciaux)cboCommerciauxRendezVous.SelectedItem;
-            lesRendezVous.ElementAt(indice).LeProspect = (Prospect)cboProspectRendezVous.SelectedItem;
-            lesRendezVous.ElementAt(indice).LeClient = (Client)cboClientRendezVous.SelectedItem;
+            // Vérification de l'heure saisie
+            TimeSpan heureRdv;
+            if (!TimeSpan.TryParse(txtHeureRendezVous.Text, out heureRdv))
+            {
+                MessageBox.Show("Format d'heure invalide. Exemple : 14:30", "Erreur", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
-            RendezVous rendezvousModifie = lesRendezVous.ElementAt(indice);
+            RendezVous rdv = lesRendezVous[indice];
+            rdv.LeClient = (Client)cboClientRendezVous.SelectedItem;
+            rdv.LeCommercial = (Commerciaux)cboCommerciauxRendezVous.SelectedItem;
+            rdv.DateRendezVous = dtpRendezVous.Text;
+            rdv.HeureRendezVous = heureRdv;
+
+            //if (TimeSpan.TryParse(cboRendezVouss.Text, out TimeSpan heure))
+            //{
+            //    rdv.HeureRendezVous = heure;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Format d'heure invalide, veuillez entrer une heure au format HH:mm.");
+            //    return;
+            //}
+
+            rdv.DescriptionRendezVous = txtDescRendezVous.Text;
+
             bdd.UpdateRendezVous(
-                rendezvousModifie.IdRendezVous,
-                rendezvousModifie.DateRendezVous,
-                rendezvousModifie.DescriptionRendezVous,
-                rendezvousModifie.HeureDebutRendezVous.ToString(@"hh\:mm"),
-                rendezvousModifie.HeureFinRendezVous.ToString(@"hh\:mm"),
-                rendezvousModifie.LeCommercial.IdCommerciaux,
-                rendezvousModifie.LeProspect.IdProspect,
-                rendezvousModifie.LeClient.IdClient
+                rdv.IdRendezVous,
+                rdv.LeClient.IdClient,
+                rdv.LeCommercial.IdCommerciaux,
+                rdv.DateRendezVous,
+                rdv.HeureRendezVous.ToString(@"hh\:mm"),
+                rdv.DescriptionRendezVous
             );
 
             dtgRendezVous.Items.Refresh();
         }
+
         #endregion
+
 
         // Suprimmer un Rendez Vous
         #region Suprimmer RendezVous
@@ -738,133 +672,172 @@ namespace InfoTools
         #endregion
 
 
-        // ------------- Facture ------------------
-        #region Facture
+        // ------------- Commande ------------------
+        #region Commande
 
-        // Affichage dans la datagrid Facture
-        #region Affichage Facture
+        // Affichage dans la datagrid Commande
+        #region Affichage Commande
         private void dtgFacture_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Facture selectedFacture = dtgFacture.SelectedItem as Facture;
-            if (dtgFacture.SelectedItem != null)
+            if (dtgCommande.SelectedItem is Commande commandeSelectionnee)
             {
-                try
-                {
-                    txtIdFacture.Text = Convert.ToString(selectedFacture.IdFacture);
-                    dateFacture.Text = selectedFacture.DateFacture;
-                    txtMontantTotal.Text = Convert.ToString(selectedFacture.MontantTotal);
-                    //cboStatutFacture.SelectedValue = selectedFacture.StatutFacture;
+                txtIdFacture.Text = commandeSelectionnee.IdCommande.ToString();
+                txtMontantTotal.Text = commandeSelectionnee.MontantTotal.ToString();
+                dateCommande.SelectedDate = DateTime.Parse(commandeSelectionnee.DateCommande);
+                // Utiliser SelectedValue avec Id
+                cboClientFacture.SelectedValue = commandeSelectionnee.LeClient.IdClient;
 
-                    cboStatutFacture.SelectedIndex = selectedFacture.StatutFacture;
-
-                    datePaiementFacture.Text = Convert.ToString(selectedFacture.DatePaiment);
-                    //cboProduitFacture.SelectedValue = selectedFacture.LeProduit.IdProduit;
-                    //cboClientFacture.SelectedValue = selectedFacture.LeClient.IdClient;
-
-                    // Mettre à jour la sélection du produit dans le ComboBox
-                    if (selectedFacture.LeProduit != null)
-                    {
-                        cboProduitFacture.SelectedValue = selectedFacture.LeProduit.IdProduit;
-                    }
-
-                    // Mettre à jour la sélection du client dans le ComboBox
-                    if (selectedFacture.LeClient != null)
-                    {
-                        cboClientFacture.SelectedValue = selectedFacture.LeClient.IdClient;
-                    }
-
-                    int i = 0;
-                    bool trouve = false;
-
-                    while (i < cboProduitFacture.Items.Count && trouve == false)
-                    {
-                        if (Convert.ToString(cboProduitFacture.Items[i]) == Convert.ToString(selectedFacture.LeProduit))
-                        {
-                            trouve = true;
-                            cboProduitFacture.SelectedIndex = i;
-                        }
-                        i++;
-                    }
-
-                    while (i < cboClientFacture.Items.Count && trouve == false)
-                    {
-                        if (Convert.ToString(cboClientFacture.Items[i]) == Convert.ToString(selectedFacture.LeClient))
-                        {
-                            trouve = true;
-                            cboClientFacture.SelectedIndex = i;
-                        }
-                        i++;
-                    }
-
-                }
-                catch (Exception)
-                {
-
-                    Console.WriteLine("Erreur sur la mise à jour du formulaire lors du changement dans le Datagrid dtgContrat");
-                }
+                // Charger et afficher les produits de la commande
+                List<LigneCommande> produits = bdd.GetProduitsCommande(commandeSelectionnee.IdCommande);
+                dtgProduitsCommande.ItemsSource = produits;
             }
         }
+
         #endregion
 
         // Ajouter une Facture
         #region BTN Ajouter une facture
         private void btnAjouterFacture_Click(object sender, RoutedEventArgs e)
         {
-                // Récupération du Pigiste sélectionné dans le Combobox cboPigiste
-                Produit ModifProduitFacture = cboProduitFacture.SelectedItem as Produit;
-                Client ModifClientFacture = cboClientFacture.SelectedItem as Client;
+            var client = (Client)cboClientFacture.SelectedItem;
+            if (client == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un client.");
+                return;
+            }
 
-                Facture tmpFacture = new Facture(0, dateFacture.Text, Convert.ToInt32(txtMontantTotal.Text), cboStatutFacture.SelectedIndex, datePaiementFacture.Text, (Produit)cboProduitFacture.SelectedItem, (Client)cboClientFacture.SelectedItem);
-                bdd.InsertFacture(tmpFacture.DateFacture, tmpFacture.MontantTotal, tmpFacture.StatutFacture, tmpFacture.DatePaiment, tmpFacture.LeProduit, tmpFacture.LeClient);
+            var tousProduits = bdd.SelectProduit(); // méthode à créer si pas déjà fait
 
-                lesFactures = bdd.SelectFacture();
+            var fenetreProduits = new FenetreProduitsCommande(tousProduits);
+            if (fenetreProduits.ShowDialog() == true)
+            {
+                var produitsChoisis = fenetreProduits.ProduitsSelectionnes;
 
-                dtgFacture.ItemsSource = lesFactures;
-                dtgFacture.SelectedIndex = 0;
-                dtgFacture.Items.Refresh();
+                if (!produitsChoisis.Any())
+                {
+                    MessageBox.Show("Aucun produit sélectionné.");
+                    return;
+                }
+
+                decimal montantTotal = produitsChoisis.Sum(p => p.Prix * p.Quantite);
+
+                int idCommande = bdd.InsertCommandeEtRetourneId(client.IdClient, montantTotal);
+
+                foreach (var p in produitsChoisis)
+                {
+                    bdd.AjouterProduitDansCommande(idCommande, p.IdProduit, p.Quantite, p.Prix);
+                }
+
+                MessageBox.Show("Commande ajoutée avec succès.");
+                dtgCommande.ItemsSource = bdd.SelectCommande();
+            }
         }
+
+
+
+
+        private void btnSupprimerProduitCommande_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtgCommande.SelectedItem is Commande commande &&
+                dtgProduitsCommande.SelectedItem is LigneCommande ligne)
+            {
+                bdd.SupprimerProduitDansCommande(commande.IdCommande, ligne.IdProduit);
+
+                // Refresh
+                dtgProduitsCommande.ItemsSource = bdd.GetProduitsCommande(commande.IdCommande);
+            }
+        }
+
+
+        private void dtgCommande_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dtgCommande.SelectedItem is Commande commandeSelectionnee)
+            {
+                txtIdFacture.Text = commandeSelectionnee.IdCommande.ToString();
+                txtMontantTotal.Text = commandeSelectionnee.MontantTotal.ToString();
+                dateCommande.SelectedDate = DateTime.Parse(commandeSelectionnee.DateCommande);
+                cboClientFacture.SelectedItem = commandeSelectionnee.LeClient;
+
+                //  Charger les produits liés à la commande
+                var produitsCommande = bdd.GetProduitsCommande(commandeSelectionnee.IdCommande);
+                dtgProduitsCommande.ItemsSource = produitsCommande;
+            }
+        }
+
         #endregion
 
         // Modifier une facture
         #region BTN Modifier Facture
         private void btnModifierFacture_Click(object sender, RoutedEventArgs e)
         {
-            int indice = lesFactures.IndexOf((Facture)dtgFacture.SelectedItem);
+            int indice = lesCommandes.IndexOf((Commande)dtgCommande.SelectedItem);
+            if (indice < 0) return;
 
-            lesFactures.ElementAt(indice).DateFacture = dateFacture.Text;
-            lesFactures.ElementAt(indice).MontantTotal = Convert.ToInt32(txtMontantTotal.Text);
-            lesFactures.ElementAt(indice).StatutFacture = cboStatutFacture.SelectedIndex;
-            lesFactures.ElementAt(indice).DatePaiment = datePaiementFacture.Text;
-            lesFactures.ElementAt(indice).LeProduit = (Produit)cboProduitFacture.SelectedItem;
-            lesFactures.ElementAt(indice).LeClient = (Client)cboClientFacture.SelectedItem;
+            var commande = lesCommandes[indice];
+            var client = (Client)cboClientFacture.SelectedItem;
+            if (client == null) return;
 
-            Facture factureModifie = lesFactures.ElementAt(indice);
-            bdd.UpdateFacture(
-                factureModifie.IdFacture,
-                factureModifie.DateFacture,
-                factureModifie.MontantTotal,
-                factureModifie.StatutFacture,
-                factureModifie.DatePaiment,
-                factureModifie.LeProduit.IdProduit,
-                factureModifie.LeClient.IdClient
-            );
+            // Charger les produits disponibles et ceux liés à la commande
+            var produitsDispo = bdd.SelectProduit();
+            var produitsCommande = bdd.GetProduitsParCommande(commande.IdCommande);
 
-            dtgFacture.Items.Refresh();
+            // Injecter les quantités actuelles
+            var produitsAvecQuantite = produitsDispo.Select(p =>
+            {
+                var existant = produitsCommande.FirstOrDefault(cp => cp.IdProduit == p.IdProduit);
+                return new ProduitSelectionne
+                {
+                    IdProduit = p.IdProduit,
+                    NomProduit = p.NomProduit,
+                    Prix = p.PrixUnitaire,
+                    Quantite = existant?.Quantite ?? 0
+                };
+            }).ToList();
+
+            // Ouvrir la fenêtre
+            var fenetreProduits = new FenetreProduitsCommande(produitsAvecQuantite);
+            if (fenetreProduits.ShowDialog() == true)
+            {
+                var produitsSelectionnes = fenetreProduits.ProduitsSelectionnes;
+                if (produitsSelectionnes.Count == 0)
+                {
+                    MessageBox.Show("Aucun produit sélectionné.");
+                    return;
+                }
+
+                decimal montantTotal = produitsSelectionnes.Sum(p => p.Prix * p.Quantite);
+
+                // 1. Mettre à jour la commande
+                bdd.UpdateCommande(commande.IdCommande, client.IdClient, montantTotal);
+
+                // 2. Supprimer les anciens produits de la commande
+                bdd.SupprimerProduitsCommande(commande.IdCommande);
+
+                // 3. Ajouter les nouveaux
+                foreach (var p in produitsSelectionnes)
+                {
+                    bdd.AjouterProduitDansCommande(commande.IdCommande, p.IdProduit, p.Quantite, p.Prix);
+                }
+
+                MessageBox.Show("Commande modifiée.");
+                dtgCommande.ItemsSource = bdd.SelectCommande();
+            }
         }
+
         #endregion
 
         // Suprimmer une facture
         #region BTN Suprimmer Facture
         private void btnSupprimerFacture_Click(object sender, RoutedEventArgs e)
         {
-            if (dtgFacture.SelectedIndex >= 0)
+            if (dtgCommande.SelectedIndex >= 0)
             {
-                bdd.DeleteFacture(Convert.ToInt16(txtIdFacture.Text));
+                bdd.DeleteCommande(Convert.ToInt16(txtIdFacture.Text));
 
-                lesFactures = bdd.SelectFacture();
+                lesCommandes = bdd.SelectCommande();
 
-                dtgFacture.ItemsSource = lesFactures;
-                dtgFacture.SelectedIndex = 0;
+                dtgCommande.ItemsSource = lesCommandes;
+                dtgCommande.SelectedIndex = 0;
             }
         }
         #endregion
@@ -874,7 +847,7 @@ namespace InfoTools
         private void btnExporterFacture_Click(object sender, RoutedEventArgs e)
         {
             // Vérifiez si une facture est sélectionnée dans le DataGrid
-            Facture selectedFacture = dtgFacture.SelectedItem as Facture;
+            Commande selectedFacture = dtgCommande.SelectedItem as Commande;
 
             if (selectedFacture == null)
             {
@@ -885,8 +858,8 @@ namespace InfoTools
             try
             {
                 // Générer un nom de fichier basé sur le numéro et la date de la facture
-                string sanitizedDate = selectedFacture.DateFacture.Replace("/", "-").Replace("\\", "-");
-                string factureFileName = $"Facture_{selectedFacture.IdFacture}_{sanitizedDate}.pdf";
+                string sanitizedDate = selectedFacture.DateCommande.Replace("/", "-").Replace("\\", "-");
+                string factureFileName = $"Facture_{selectedFacture.IdCommande}_{sanitizedDate}.pdf";
                 string exportPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), factureFileName);
 
                 // Créez un document PDF
@@ -901,17 +874,15 @@ namespace InfoTools
                 gfx.DrawString("Facture", font, XBrushes.Black, new XRect(0, 40, page.Width, page.Height), XStringFormats.Center);
 
                 // Ajouter les informations de la facture
-                gfx.DrawString($"Numéro de Facture: {selectedFacture.IdFacture}", font, XBrushes.Black, 40, 80);
-                gfx.DrawString($"Date de Facture: {selectedFacture.DateFacture}", font, XBrushes.Black, 40, 110);
+                gfx.DrawString($"Numéro de Facture: {selectedFacture.IdCommande}", font, XBrushes.Black, 40, 80);
+                gfx.DrawString($"Date de Facture: {selectedFacture.LeClient.IdClient}", font, XBrushes.Black, 40, 110);
                 gfx.DrawString($"Montant Total: {selectedFacture.MontantTotal} €", font, XBrushes.Black, 40, 140);
-                gfx.DrawString($"Statut: {selectedFacture.StatutFacture}", font, XBrushes.Black, 40, 170);
-                gfx.DrawString($"Date de Paiement: {selectedFacture.DatePaiment}", font, XBrushes.Black, 40, 200);
 
                 // Ajouter les informations du produit
-                if (selectedFacture.LeProduit != null)
-                {
-                    gfx.DrawString($"Produit: {selectedFacture.LeProduit.NomProduit}", font, XBrushes.Black, 40, 230);
-                }
+                //if (selectedFacture.LeProduit != null)
+                //{
+                //    gfx.DrawString($"Produit: {selectedFacture.LeProduit.NomProduit}", font, XBrushes.Black, 40, 230);
+                //}
 
                 // Ajouter les informations du client
                 if (selectedFacture.LeClient != null)
@@ -937,10 +908,10 @@ namespace InfoTools
         private void btnGraphiqueFacture_Click(object sender, RoutedEventArgs e)
         {
             // Récupérer les factures depuis la base de données (ou DataGrid)
-            List<Facture> factures = bdd.SelectFacture();
+            List<Commande> commandes = bdd.SelectCommande();
 
             // Créer et ouvrir la fenêtre du graphique
-            GraphiqueWindow graphiqueWindow = new GraphiqueWindow(factures);
+            GraphiqueWindow graphiqueWindow = new GraphiqueWindow(commandes);
             graphiqueWindow.Show();
         }
         #endregion
@@ -953,11 +924,11 @@ namespace InfoTools
         private void btnActualliser_Click(object sender, RoutedEventArgs e)
         {
             // Rafraîchissez les données depuis la base de données
-            List<Commerciaux> commerciaux = bdd.SelectCommerciaux(); // Exemple : récupérer les commerciaux depuis la base de données
+            List<Commerciaux> commerciaux = bdd.SelectCommercials(); // Exemple : récupérer les commerciaux depuis la base de données
             List<Prospect> prospects = bdd.SelectProspect(); // Exemple : récupérer les prospects depuis la base de données
             List<Client> clients = bdd.SelectClient(); // Exemple : récupérer les clients depuis la base de données
             List<RendezVous> rendezVous = bdd.SelectRendezVous(); // Exemple : récupérer les rendez-vous depuis la base de données
-            List<Facture> factures = bdd.SelectFacture(); // Exemple : récupérer les factures depuis la base de données
+            List<Commande> factures = bdd.SelectCommande(); // Exemple : récupérer les factures depuis la base de données
             List<Produit> produits = bdd.SelectProduit(); // Exemple : récupérer les produits depuis la base de données
 
             // Actualisez les DataGrids avec les nouvelles données
@@ -965,16 +936,12 @@ namespace InfoTools
             dtgProspect.ItemsSource = prospects;
             dtgClient.ItemsSource = clients;
             dtgRendezVous.ItemsSource = rendezVous;
-            dtgFacture.ItemsSource = factures;
+            dtgCommande.ItemsSource = factures;
             dtgProduit.ItemsSource = produits;
 
             // Actualisez les ComboBox avec les nouvelles données
-            cboProspectCommercial.ItemsSource = prospects;
-            cboCommercialClient.ItemsSource = commerciaux;
             cboCommerciauxRendezVous.ItemsSource = commerciaux;
-            cboProspectRendezVous.ItemsSource = prospects;
             cboClientRendezVous.ItemsSource = clients;
-            cboProduitFacture.ItemsSource = produits;
             cboClientFacture.ItemsSource = clients;
 
             // Rafraîchissez les éléments de l'interface graphique
@@ -982,17 +949,17 @@ namespace InfoTools
             dtgProspect.Items.Refresh();
             dtgClient.Items.Refresh();
             dtgRendezVous.Items.Refresh();
-            dtgFacture.Items.Refresh();
+            dtgCommande.Items.Refresh();
             dtgProduit.Items.Refresh();
 
-            cboProspectCommercial.Items.Refresh();
-            cboCommercialClient.Items.Refresh();
             cboCommerciauxRendezVous.Items.Refresh();
-            cboProspectRendezVous.Items.Refresh();
             cboClientRendezVous.Items.Refresh();
-            cboStatutFacture.Items.Refresh();
-            cboProduitFacture.Items.Refresh();
             cboClientFacture.Items.Refresh();
+
+            MainWindow mainWin = new MainWindow();
+            mainWin.Show();
+            // Ferme la fenêtre actuelle
+            this.Close();
         }
         #endregion
 

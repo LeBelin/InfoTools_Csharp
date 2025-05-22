@@ -10,7 +10,7 @@ namespace InfoTools
     public partial class GraphiqueWindow : Window
     {
         // Constructeur qui prend une liste de factures en paramètre
-        public GraphiqueWindow(List<Facture> factures)
+        public GraphiqueWindow(List<Commande> factures)
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace InfoTools
                 new Axis
                 {
                     Title = "Factures",
-                    Labels = factures.Select(f => $"Facture N° {f.IdFacture}").ToArray() // IDs des factures
+                    Labels = factures.Select(f => $"Facture N° {f.IdCommande}").ToArray() // IDs des factures
                 }
             };
 

@@ -14,8 +14,7 @@ namespace InfoTools
         private string nomProduit;
         private string desciptionProduit;
         private int prixUnitaire;
-        private string dateAjoutProduit;
-        private string imgProduit;
+        private int stockProduit;
         #endregion
 
         #region Méthodes
@@ -43,30 +42,22 @@ namespace InfoTools
             set { prixUnitaire = value; }
         }
 
-        public string DateAjoutProduit
+        public int StockProduit
         {
-            get { return dateAjoutProduit; }
-            set { dateAjoutProduit = value; }
+            get { return stockProduit; }
+            set { stockProduit = value; }
         }
-
-        public string ImgProduit
-        {
-            get { return imgProduit; }
-            set { imgProduit = value; }
-        }
-
 
         #endregion
 
         #region Constructeur
-        public Produit(int idProduit, string nomProduit, string desciptionProduit, int prixUnitaire, string dateAjoutProduit, string imgProduit)
+        public Produit(int idProduit, string nomProduit, string desciptionProduit, int prixUnitaire, int stockProduit)
         {
             this.idProduit = idProduit;
             this.nomProduit = nomProduit;
             this.desciptionProduit = desciptionProduit;
             this.prixUnitaire = prixUnitaire;
-            this.dateAjoutProduit = dateAjoutProduit;
-            this.imgProduit = imgProduit;
+            this.stockProduit = stockProduit;
         }
         #endregion
 
